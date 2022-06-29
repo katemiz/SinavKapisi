@@ -7,15 +7,15 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="250"
+   width="800"
    height="250"
    id="svg5974"
    version="1.1"
    inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
-   sodipodi:docname="Favicon.svg"
-   inkscape:export-filename="/run/user/1000/gvfs/smb-share:server=raspiserver,share=web/html/SinavKapisi/favicon.ico.png"
-   inkscape:export-xdpi="18.431999"
-   inkscape:export-ydpi="18.431999">
+   sodipodi:docname="od_brand_auth.svg"
+   inkscape:export-filename="/run/user/1000/gvfs/smb-share:server=raspiserver,share=web/html/OpenDoor/kapkara_ksm.png"
+   inkscape:export-xdpi="28.56072"
+   inkscape:export-ydpi="28.56072">
   <defs
      id="defs5976">
     <clipPath
@@ -62,8 +62,8 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="3.264"
-     inkscape:cx="125"
+     inkscape:zoom="1.70625"
+     inkscape:cx="400"
      inkscape:cy="125"
      inkscape:document-units="px"
      inkscape:current-layer="layer5"
@@ -114,6 +114,17 @@
            y="-16.656542" /></flowRegion><flowPara
          id="flowPara752" /></flowRoot>    <text
        xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#db5c00;fill-opacity:1;stroke:none;"
+       x="217.86115"
+       y="-1491.6757"
+       id="text760"><tspan
+         sodipodi:role="line"
+         id="tspan758"
+         x="217.86115"
+         y="-1491.6757"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:128px;font-family:'Ubuntu Condensed';-inkscape-font-specification:'Ubuntu Condensed, ';fill:#db5c00;fill-opacity:1;">Sınav Kapısı</tspan></text>
+    <text
+       xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
        x="767.99475"
        y="-1464.2599"
@@ -123,17 +134,16 @@
          x="767.99475"
          y="-1428.8693" /></text>
     <path
-       style="fill:none;stroke:#1c2327;stroke-width:20;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M 92.46747,-1627.2459 H 52.467468 v 180 H 92.46747"
+       style="fill:none;stroke:#9a9a9a;stroke-width:20;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 85.47237,-1624.4885 h -40 v 180 h 40"
        id="path1136"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccc" />
     <path
        inkscape:connector-curvature="0"
-       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.9223454px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 115.46826,-1649.0411 v 220 l 80,-18 v -184 z m 27.02933,108.8737 c 0.11772,22.9338 0.0336,8.6915 -0.30637,34.1519 l -13.93152,1.9308 v -34.7647 z"
-       id="path1144"
-       sodipodi:nodetypes="cccccccccc" />
+       style="fill:#4d4d4d;fill-opacity:1;stroke:none;stroke-width:0.9223454px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 96.47316,-1646.2837 v 220 l 80,-18 v -184 z m 18.14453,114.082 v 9.4238 h 8.40235 v 4.2637 h -8.40235 v 15.5625 l -9.33593,1.0117 v -29.25 z m -4.66796,20.9512 c -0.81993,0.029 -1.48438,0.7364 -1.48438,1.582 4.3e-4,0.4426 0.18596,0.8575 0.50977,1.1367 v 1.3164 c 0,0.585 0.42417,1.0415 0.95117,1.0235 0.52698,-0.018 0.95117,-0.5049 0.95117,-1.0899 v -1.2754 c 0.35203,-0.3029 0.55664,-0.7498 0.55664,-1.2148 -3.5e-4,-0.8455 -0.6645,-1.5075 -1.48437,-1.4785 z"
+       id="path1144" />
     <rect
        style="fill:#ff3e00;fill-opacity:1;stroke:none;stroke-width:20;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
        id="rect1294"

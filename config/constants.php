@@ -10,16 +10,27 @@ return [
     ],
 
     'app' => [
-        'name' => 'app name here',
-        'title' => 'App Title Here',
-        'welcome_header' => 'constants.welcome_header',
+        'name' => 'Sınav Kapısı',
+        'title' => 'Özgür, Bedava ve Herkese Açık',
+        'welcome_header' => 'Özgür, Bedava ve Herkese Açık',
         'welcome_subtitle' => 'constants.welcome_subtitle',
-        'description' => 'Description here',
+        'description' => 'Akıllı Deneme Sınavları Merkezi',
         'app_header_logo' => 'app_header_logo.svg',
         'app_footer_logo' => 'app_footer_logo.svg',
-        'version' => '2022.04.08',
+        'version' => '2022.06.29',
         'copyright' => '© 2022 All Rights Reserved',
     ],
 
     'favicon' => '/images/favicon.svg',
+
+    'icons' => [
+        'size' => '24',
+        'color' => [
+            'light' => 'hsl(0, 0%, 100%)',
+            'dark' => 'hsl(0, 0%, 4%)',
+            'active' => 'hsl(217, 71%, 53%)',
+            'inactive' => 'hsl(0, 0%, 71%)',
+            'danger' => 'hsl(348, 86%, 43%)',
+        ],
+    ],
 ];

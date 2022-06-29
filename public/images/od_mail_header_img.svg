@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="600"
+   height="500"
+   id="svg5974"
+   version="1.1"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="od_mail_hero.svg"
+   inkscape:export-filename="/run/user/1000/gvfs/smb-share:server=raspiserver,share=web/html/iqdb/kapkara_ksm.png"
+   inkscape:export-xdpi="24"
+   inkscape:export-ydpi="24">
+  <defs
+     id="defs5976">
+    <clipPath
+       id="_clipPath_nXuP1H4JEuJEGNecXDwHu9dkKVCaACbs">
+      <rect
+         y="0"
+         x="0"
+         id="rect700"
+         height="315"
+         width="560" />
+    </clipPath>
+    <clipPath
+       id="_clipPath_5GnptCOllSOJ3bO73qvNTUgcvzTIUkS6">
+      <rect
+         id="rect993"
+         height="315"
+         width="560"
+         x="0"
+         y="0" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.68"
+     inkscape:cx="219.45785"
+     inkscape:cy="257.27884"
+     inkscape:document-units="px"
+     inkscape:current-layer="g2983"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1028"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     borderlayer="true"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:document-rotation="0" />
+  <metadata
+     id="metadata5979">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="MAIN"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,919.63782)"
+     style="display:inline" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="TR"
+     style="display:inline"
+     transform="translate(0,1911)">
+    <g
+       id="g1200"
+       transform="translate(15.47619,0.5952381)">
+      <flowRoot
+         transform="translate(0,-1539)"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:-46.52999878px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+         id="flowRoot746"
+         xml:space="preserve"><flowRegion
+           id="flowRegion748"><rect
+             y="-16.656542"
+             x="356.3811"
+             height="185.42339"
+             width="220.92999"
+             id="rect750" /></flowRegion><flowPara
+           id="flowPara752" /></flowRoot>      <text
+         id="text766"
+         y="-1464.2599"
+         x="767.99475"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+         xml:space="preserve"><tspan
+           y="-1428.8693"
+           x="767.99475"
+           id="tspan764"
+           sodipodi:role="line" /></text>
+      <g
+         id="g2983"
+         transform="translate(-90.176611,32.334169)">
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#000080;fill-opacity:1;stroke:none"
+           x="374.34573"
+           y="-1584.4768"
+           id="text760-3"><tspan
+             sodipodi:role="line"
+             id="tspan758-6"
+             x="374.34573"
+             y="-1584.4768"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:96px;font-family:'Ubuntu Condensed';-inkscape-font-specification:'Ubuntu Condensed, ';text-align:center;text-anchor:middle;fill:#000080">Sınav Kapısı</tspan><tspan
+             sodipodi:role="line"
+             x="374.34573"
+             y="-1518.6055"
+             style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:37.33333206px;font-family:Ubuntu;-inkscape-font-specification:'Ubuntu Light';text-align:center;text-anchor:middle;fill:#000080"
+             id="tspan1127">Deneme Sınavları Merkezi</tspan><tspan
+             sodipodi:role="line"
+             x="374.34573"
+             y="-1468.6055"
+             style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:53.33333206px;font-family:'Open Sans';-inkscape-font-specification:'Open Sans Light';text-align:center;text-anchor:middle;fill:#000080"
+             id="tspan1172-7" /></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+           x="491.96231"
+           y="-1625.4771"
+           id="text2031"><tspan
+             sodipodi:role="line"
+             id="tspan2029"
+             x="491.96231"
+             y="-1625.4771"> </tspan></text>
+        <g
+           id="g3042"
+           transform="matrix(0.92208142,0,0,0.92208142,316.24885,-169.47682)">
+          <path
+             sodipodi:nodetypes="cccc"
+             inkscape:connector-curvature="0"
+             id="path1136-7"
+             d="M 42.890502,-1867.8485 H 2.8905027 v 180 H 42.890502"
+             style="display:inline;fill:none;stroke:#9ea3b6;stroke-width:20;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <path
+             id="path1144-5"
+             d="m 53.891292,-1889.6437 v 220 l 79.999998,-18 v -184 z m 18.14453,114.082 v 9.4238 h 8.40235 v 4.2637 h -8.40235 v 15.5625 l -9.33593,1.0117 v -29.25 z m -4.66796,20.9512 c -0.81993,0.029 -1.48438,0.7364 -1.48438,1.582 4.3e-4,0.4426 0.18596,0.8575 0.50977,1.1367 v 1.3164 c 0,0.585 0.42417,1.0415 0.95117,1.0235 0.52698,-0.018 0.95117,-0.5049 0.95117,-1.0899 v -1.2754 c 0.35203,-0.3029 0.55664,-0.7498 0.55664,-1.2148 -3.5e-4,-0.8455 -0.6645,-1.5075 -1.48437,-1.4785 z"
+             style="display:inline;fill:#000080;fill-opacity:1;stroke:none;stroke-width:0.9223454px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+             inkscape:connector-curvature="0" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

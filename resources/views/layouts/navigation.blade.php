@@ -1,9 +1,9 @@
-<nav class="navbar is-light is-transparent">
+<nav class="navbar is-dark is-transparent">
 
     <div class="navbar-brand">
 
-        <a  href="/" class="navbar-item">
-            App
+        <a href="/" class="navbar-item">
+            <img src="{{asset('images/app_header_logo.svg')}}" alt="header logo">
         </a>
 
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar_ana">
@@ -16,7 +16,7 @@
 
     <div id="navbar_ana" class="navbar-menu">
 
-      <div class="navbar-start" id="navstart">
+      <div class="navbar-start has-text-white" id="navstart">
 
         @if(Auth::check())
 
@@ -32,7 +32,7 @@
 
       </div>
 
-      <div class="navbar-end">
+      <div class="navbar-end  has-text-white">
 
         <div class="navbar-item">
           <div class="buttons">
@@ -62,12 +62,19 @@
                     </div>
                   </div>
               @else
-                <a href="{{route('login')}}" class="navbar-item">
-                    Login
+
+                <a href="{{route('login')}}" class="navbar-item has-text-white">
+                    <span class="icon">
+                        <x-icon icon="login" fill="{{config('constants.icons.color.light')}}"/>
+                    </span>
+                    <span class="ml-1">Giriş</span>
                 </a>
 
-                <a href="{{route('register')}}" class="navbar-item">
-                    Register
+                <a href="{{route('register')}}" class="navbar-item has-text-white">
+                    <span class="icon">
+                        <x-icon icon="user" fill="{{config('constants.icons.color.light')}}"/>
+                    </span>
+                    <span class="ml-1">Kaydolun</span>
                 </a>
 
               @endif

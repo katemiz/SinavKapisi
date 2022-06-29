@@ -7,17 +7,78 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   enable-background="new 0 0 24 24"
-   height="160"
-   viewBox="0 0 640 160"
-   width="640"
+   width="865"
+   height="250"
+   id="svg5974"
    version="1.1"
-   id="svg26"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
    sodipodi:docname="app_header_logo.svg"
-   style="fill:#000000"
-   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)">
+   inkscape:export-filename="/run/user/1000/gvfs/smb-share:server=raspiserver,share=web/html/OpenDoor/kapkara_ksm.png"
+   inkscape:export-xdpi="28.56072"
+   inkscape:export-ydpi="28.56072">
+  <defs
+     id="defs5976">
+    <clipPath
+       id="_clipPath_nXuP1H4JEuJEGNecXDwHu9dkKVCaACbs">
+      <rect
+         y="0"
+         x="0"
+         id="rect700"
+         height="315"
+         width="560" />
+    </clipPath>
+    <clipPath
+       id="_clipPath_5GnptCOllSOJ3bO73qvNTUgcvzTIUkS6">
+      <rect
+         id="rect993"
+         height="315"
+         width="560"
+         x="0"
+         y="0" />
+    </clipPath>
+    <clipPath
+       id="_clipPath_nXuP1H4JEuJEGNecXDwHu9dkKVCaACbs-7">
+      <rect
+         width="560"
+         height="315"
+         id="rect700-5"
+         x="0"
+         y="0" />
+    </clipPath>
+    <clipPath
+       id="_clipPath_5GnptCOllSOJ3bO73qvNTUgcvzTIUkS6-3">
+      <rect
+         width="560"
+         height="315"
+         id="rect993-5"
+         x="0"
+         y="0" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#b8b8b8"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="1"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.5734104"
+     inkscape:cx="432.5"
+     inkscape:cy="125"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer5"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1007"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     borderlayer="true"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:document-rotation="0" />
   <metadata
-     id="metadata32">
+     id="metadata5979">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
@@ -28,33 +89,66 @@
       </cc:Work>
     </rdf:RDF>
   </metadata>
-  <defs
-     id="defs30" />
-  <sodipodi:namedview
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1007"
-     id="namedview28"
-     showgrid="false"
-     inkscape:zoom="2.1265625"
-     inkscape:cx="320"
-     inkscape:cy="80"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg26" />
-  <rect
-     style="opacity:1;fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:9.34788513;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     id="rect883"
-     width="630.6521"
-     height="150.65211"
-     x="4.6739426"
-     y="4.6739426" />
+  <g
+     inkscape:label="MAIN"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,669.63782)"
+     style="display:inline" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="TR"
+     style="display:inline"
+     transform="translate(0,1661)">
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot746"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:-46.52999878px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       transform="translate(0,-1539)"><flowRegion
+         id="flowRegion748"><rect
+           id="rect750"
+           width="220.92999"
+           height="185.42339"
+           x="356.3811"
+           y="-16.656542" /></flowRegion><flowPara
+         id="flowPara752" /></flowRoot>    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:44.47738647px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.11193478"
+       x="222.81955"
+       y="-1477.2737"
+       id="text760"><tspan
+         sodipodi:role="line"
+         id="tspan758"
+         x="222.81955"
+         y="-1477.2737"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:160px;font-family:'Bebas Neue';-inkscape-font-specification:'Bebas Neue Bold';fill:#ffffff;fill-opacity:1;stroke-width:1.11193478">Sınav Kapısı</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       x="767.99475"
+       y="-1464.2599"
+       id="text766"><tspan
+         sodipodi:role="line"
+         id="tspan764"
+         x="767.99475"
+         y="-1428.2297" /></text>
+    <rect
+       style="fill:#ff3e00;fill-opacity:1;stroke:none;stroke-width:20;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
+       id="rect1294"
+       width="0.43942577"
+       height="7.4702382"
+       x="-30.320377"
+       y="-2018.2864" />
+    <path
+       inkscape:connector-curvature="0"
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:3.61692429;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 74.933032,-1642.3911 H 23.130484 v 217.0154 h 51.802548 v -22.6058 H 45.736261 v -171.8039 h 29.196771 z"
+       id="path1011" />
+    <path
+       style="display:inline;opacity:1;fill:#aad400;fill-opacity:1;stroke:none;stroke-width:1.34433496;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 187.96094 19.828125 L 97.539062 37.912109 L 97.539062 236.84375 L 187.96094 218.75977 L 187.96094 19.828125 z M 118.95898 140.64258 L 118.95898 151.51953 L 139.78516 147.35352 L 139.78516 151.79297 L 121.50391 160.63477 L 118.95898 161.15234 L 118.95898 170.01953 L 105.60547 172.68945 L 105.60547 143.3125 L 118.95898 140.64258 z M 115.27148 161.9043 L 113.60156 162.24414 L 110.38086 162.93359 L 110.38086 168.58008 L 115.27148 167.53125 L 115.27148 161.9043 z "
+       transform="translate(0,-1661)"
+       id="rect848-9-7" />
+  </g>
 </svg>
