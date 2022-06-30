@@ -6,7 +6,7 @@
             <img alt="hero" class="hero-background" src="images/hero.svg">
         </figure>
 
-        <h1 class="title mb-6 has-text-weight-light is-size-1 has-text-centered">{{config('constants.app.title')}}k</h1>
+        <h1 class="title mb-6 has-text-weight-light is-size-1 has-text-centered">{{config('constants.app.title')}}</h1>
 
         <div class="columns is-centered">
             @foreach (config('html.boxes') as $box)

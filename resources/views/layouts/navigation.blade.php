@@ -18,6 +18,10 @@
 
       <div class="navbar-start has-text-white" id="navstart">
 
+        <a href="/konular" class="navbar-item">
+            Konular
+        </a>
+
         @if(Auth::check())
 
            <a href="{{route('dashboard')}}" class="navbar-item">

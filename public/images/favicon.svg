@@ -12,7 +12,7 @@
    id="svg5974"
    version="1.1"
    inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
-   sodipodi:docname="Favicon.svg"
+   sodipodi:docname="favicon.svg"
    inkscape:export-filename="/run/user/1000/gvfs/smb-share:server=raspiserver,share=web/html/SinavKapisi/favicon.ico.png"
    inkscape:export-xdpi="18.431999"
    inkscape:export-ydpi="18.431999">
@@ -57,21 +57,21 @@
   </defs>
   <sodipodi:namedview
      id="base"
-     pagecolor="#ffffff"
+     pagecolor="#dddddd"
      bordercolor="#666666"
      borderopacity="1.0"
-     inkscape:pageopacity="0.0"
+     inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="3.264"
+     inkscape:zoom="3.228"
      inkscape:cx="125"
      inkscape:cy="125"
      inkscape:document-units="px"
      inkscape:current-layer="layer5"
      showgrid="false"
      inkscape:window-width="1920"
-     inkscape:window-height="1004"
+     inkscape:window-height="1007"
      inkscape:window-x="0"
-     inkscape:window-y="24"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      borderlayer="true"
      showguides="true"
@@ -122,18 +122,6 @@
          id="tspan764"
          x="767.99475"
          y="-1428.8693" /></text>
-    <path
-       style="fill:none;stroke:#1c2327;stroke-width:20;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M 92.46747,-1627.2459 H 52.467468 v 180 H 92.46747"
-       id="path1136"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cccc" />
-    <path
-       inkscape:connector-curvature="0"
-       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.9223454px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 115.46826,-1649.0411 v 220 l 80,-18 v -184 z m 27.02933,108.8737 c 0.11772,22.9338 0.0336,8.6915 -0.30637,34.1519 l -13.93152,1.9308 v -34.7647 z"
-       id="path1144"
-       sodipodi:nodetypes="cccccccccc" />
     <rect
        style="fill:#ff3e00;fill-opacity:1;stroke:none;stroke-width:20;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
        id="rect1294"
@@ -141,5 +129,15 @@
        height="7.4702382"
        x="-30.320377"
        y="-2018.2864" />
+    <path
+       inkscape:connector-curvature="0"
+       style="display:inline;opacity:1;fill:#070707;fill-opacity:1;stroke:none;stroke-width:3.61692429;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 97.144669,-1647.8747 H 45.342121 v 217.0154 h 51.802548 v -22.6058 H 67.947901 v -171.8039 h 29.196768 z"
+       id="path1011" />
+    <path
+       inkscape:connector-curvature="0"
+       style="display:inline;opacity:1;fill:#000080;fill-opacity:1;stroke:none;stroke-width:1.34433496;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 210.17258,-1646.6555 -90.42188,18.084 v 198.9316 l 90.42188,-18.0839 z m -69.00196,120.8145 v 10.8769 l 20.82618,-4.166 v 4.4395 l -18.28125,8.8418 -2.54493,0.5175 v 8.8672 l -13.35351,2.6699 v -29.3769 z m -3.6875,21.2617 -1.66992,0.3398 -3.2207,0.6895 v 5.6465 l 4.89062,-1.0489 z"
+       id="rect848-9-7" />
   </g>
 </svg>
