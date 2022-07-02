@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\Soru;
 use App\Http\Livewire\Tree;
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/konular', Tree::class);
+Route::get('/kapsam', Tree::class);
+Route::get('/soru-ekle', Soru::class);
 
 Route::get('lang/{lang}', [
     'as' => 'lang.switch',

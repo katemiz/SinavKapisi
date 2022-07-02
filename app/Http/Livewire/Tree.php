@@ -2,15 +2,19 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Konu;
+use App\Models\Kapsam;
 use Livewire\Component;
 
 class Tree extends Component
 {
-    public $rows;
-    public $rowsarray;
-    public $treearray;
-    public $tablearray;
+    public $treearray = [];
+    public $vturu = 'sinav';
+
+    protected $listeners = [
+        'add' => 'add',
+        'update' => 'update',
+        'delete' => 'delete',
+    ];
 
     function buildTree(array $flatList)
     {
@@ -33,13 +37,12 @@ class Tree extends Component
         return $fnBuilder($grouped[0]);
     }
 
-    public function treeToTable($array, $level = 0)
+    public function treeToTableSIL($array, $level = 0)
     {
         foreach ($array as $branch) {
             $branchcopy = $branch;
             $branchcopy['level'] = $level;
             unset($branchcopy['children']);
-            $this->tablearray[] = $branchcopy;
 
             if (isset($branch['children'])) {
                 $level++;
@@ -54,16 +57,11 @@ class Tree extends Component
 
     public function render()
     {
-        $this->rows = Konu::all();
-        $this->rowsarray = $this->rows->toArray();
-        $this->treearray = $this->buildTree(
-            $this->rowsarray,
-            'parent_id',
-            'id'
-        );
-        $this->treeToTable($this->treearray);
+        $rows = Kapsam::all()->toArray();
 
-        //$this->tablearray = (object) $this->tablearray;
+        if (count($rows) > 0) {
+            $this->treearray = $this->buildTree($rows, 'parent_id', 'id');
+        }
 
         return view('livewire.tree');
     }
@@ -71,5 +69,27 @@ class Tree extends Component
     public function deneme()
     {
         dd('oldu');
+    }
+
+    public function add($fdata)
+    {
+        $p['tur'] = $fdata['tur'];
+        $p['parent_id'] = $fdata['parent_id'];
+        $p['title'] = $fdata['title'];
+
+        Kapsam::create($p);
+    }
+
+    public function update($fdata)
+    {
+        $p['parent_id'] = $fdata['parent_id'];
+        $p['title'] = $fdata['title'];
+
+        Kapsam::find($fdata['id'])->update($p);
+    }
+
+    public function delete($id)
+    {
+        Kapsam::find($id)->delete();
     }
 }

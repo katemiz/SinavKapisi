@@ -18,8 +18,14 @@
 
       <div class="navbar-start has-text-white" id="navstart">
 
-        <a href="/konular" class="navbar-item">
+        <a href="/kapsam" class="navbar-item">
             Konular
+        </a>
+
+
+
+        <a href="/soru-ekle" class="navbar-item">
+            Soru Ekle
         </a>
 
         @if(Auth::check())
