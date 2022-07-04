@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Kapsam;
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,12 +14,13 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('kapsam', function (Blueprint $table) {
+        Schema::create('sorular', function (Blueprint $table) {
             $table->id();
-            $table->integer('parent_id')->default(0);
-            $table->string('title')->default('Bu konu başlığı');
-            $table->string('abbr')->nullable();
-            $table->string('tur');
+            $table->foreignIdFor(User::class);
+            $table->foreignIdFor(Kapsam::class);
+            $table->text('soru_background');
+            $table->text('soru');
+
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('kapsam');
+        Schema::dropIfExists('sorular');
     }
 };

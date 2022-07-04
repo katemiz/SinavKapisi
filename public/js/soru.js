@@ -39,3 +39,11 @@ function loadEditors() {
       console.error(error)
     })
 }
+
+function select(sinav, ders, ders_id) {
+  document.getElementById('baslik').innerHTML = sinav + ' ' + ders
+  document.getElementById('active_sinav').innerHTML = sinav
+  document.getElementById('active_ders').innerHTML = ders
+
+  document.getElementById('selected_ders').value = ders_id
+}
