@@ -29,23 +29,26 @@ return [
             ],
             'link' => [
                 'text' => 'Soru Ekle',
-                'url' => '/aaa',
+                'url' => '/soru-add',
             ],
         ],
     ],
 
     'gunluk' => [
         [
+            'tur' => 'M',
             'header' => 'Günün Matematk Sorusu',
             'image' => 'MathPromo.svg',
             'motto' => 'Matematiğin eğlence olduğunu düşünenlere',
         ],
         [
+            'tur' => 'F',
             'header' => 'Günün Fizik Sorusu',
             'image' => 'PhysicsPromo.svg',
             'motto' => 'Aslonan fiziktir',
         ],
         [
+            'tur' => 'T',
             'header' => 'Günün Türkçe Sorusu',
             'image' => 'TurkcePromo.svg',
             'motto' => 'Herşey anlama ile başlar',

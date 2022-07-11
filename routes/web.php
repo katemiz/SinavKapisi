@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\SoruController;
+use App\Http\Livewire\GunlukSoru;
 use App\Http\Livewire\SoruForm;
 use App\Http\Livewire\SoruList;
 use App\Http\Livewire\SoruView;
@@ -65,4 +66,6 @@ Route::middleware(['auth'])->group(function () {
         SoruController::class,
         'deleteSecenek',
     ]);
+
+    Route::get('/gunluk-soru/{tur}', GunlukSoru::class);
 });

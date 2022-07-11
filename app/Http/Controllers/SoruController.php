@@ -30,11 +30,6 @@ class SoruController extends Controller
         if (request('id') > 0) {
             $this->soru = Soru::find(request('id'));
 
-            // $this->selected_ders = Kapsam::find($this->soru->kapsam_id);
-            // $this->selected_sinav = Kapsam::find(
-            //     $this->selected_ders->parent_id
-            // );
-
             return view('soru-edit', [
                 'soru' => $this->soru,
                 'sinavlar' => $sinavlar,
@@ -87,8 +82,6 @@ class SoruController extends Controller
             $this->add_form = true;
         }
 
-        //dd($this->show_form);
-
         return view('livewire.soru-view', [
             'notification' => [
                 'type' => 'is-success',
@@ -105,8 +98,8 @@ class SoruController extends Controller
     {
         $props['user_id'] = Auth::id();
         $props['kapsam_id'] = $req->input('sders');
-        $props['soru'] = $req->input('editor_data1');
-        $props['soru_background'] = $req->input('editor_data2');
+        $props['soru'] = $req->input('editor_data2');
+        $props['soru_background'] = $req->input('editor_data1');
 
         $soru = Soru::create($props);
 
@@ -145,14 +138,12 @@ class SoruController extends Controller
         $props['dogru_mu'] = $req->input('dogru_mu');
 
         Secenek::find(request('secId'))->update($props);
-
         return redirect()->route('soruview', ['id' => request('id')]);
     }
 
-    public function deleteSecenek(Request $req)
+    public function deleteSecenek()
     {
         Secenek::find(request('secId'))->delete();
-
         return redirect()->route('soruview', ['id' => request('id')]);
     }
 }

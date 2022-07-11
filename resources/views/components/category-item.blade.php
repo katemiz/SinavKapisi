@@ -19,7 +19,7 @@
 
     </div>
 
-    {{-- @if(Auth::check()) --}}
+    @if(Auth::check())
         <div class="column">
             <p class="buttons is-pulled-right">
                 <button class="icon" onclick="add({{$category['id']}},'{{$category['tur']}}')">
@@ -42,7 +42,7 @@
                 @endif
             </p>
         </div>
-    {{-- @endif --}}
+    @endif
 
 </div>
 

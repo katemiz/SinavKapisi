@@ -19,7 +19,7 @@
                     @endforeach
 
                     @if ($box['link'])
-                        <a href="{{route('register')}}" class="button is-fullwidth">
+                        <a href="{{$box['link']['url']}}" class="button is-fullwidth">
                             <span class="icon">
                                 <x-icon icon="plus" fill="{{config('constants.icons.color.active')}}"/>
                             </span>
@@ -38,7 +38,7 @@
 
             @foreach (config('html.gunluk') as $sturu)
 
-                <div class="column has-background-light has-text-centered m-2 p-5">
+                <div class="column has-background-light has-text-centered m-2 p-5" onclick="gunlukSoru('{{$sturu['tur']}}')" onMouseOver="this.style.cursor='pointer'">
                     <h1 class="title mb-4 has-text-weight-light ">{{$sturu['header']}}</h1>
                     <img src="/images/{{$sturu['image']}}" alt="soru türü için görüntü">
                     <p class="has-text-weight-light">{{$sturu['motto']}}</p>
@@ -48,9 +48,15 @@
 
         </div>
 
-
-
-
     </section>
+
+    <script>
+
+        function gunlukSoru(ders) {
+            location.href = '/gunluk-soru/'+ders;
+        }
+
+
+    </script>
 
 </x-app-layout>

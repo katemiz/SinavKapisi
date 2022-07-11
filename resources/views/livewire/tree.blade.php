@@ -7,12 +7,14 @@
         <h2 class="subtitle has-text-weight-light">TYT ve AYT Sınav Kapsamı</h2>
     </header>
 
-    <input type="label" id="action" value="add" />
-    <input type="label" id="parent_id" value="0"/>
-    <input type="label" id="id" />
-    <input type="label" id="tur" value="sinav" />
+    <input type="hidden" id="action" value="add" />
+    <input type="hidden" id="parent_id" value="0"/>
+    <input type="hidden" id="id" />
+    <input type="hidden" id="tur" value="sinav" />
 
-    <x-table-filter addcommand="Sınav Türü Ekle" showsearch="0"/>
+    @if(Auth::check())
+    <x-table-filter addcommand="Sınav Türü Ekle" addlink="add(0,'sinav')" showsearch="0"/>
+    @endif
 
     @if (count($treearray) > 0)
         <div class="content">

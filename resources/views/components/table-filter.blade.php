@@ -3,7 +3,7 @@
     <!-- Left side -->
     <div class="level-left">
         <div class="level-item  has-text-centered">
-            <a class="button is-link" onclick="add()">
+            <a class="button is-link" href="{{$addlink}}">
                 <span class="icon is-small">
                     <x-icon icon="plus" fill="{{config('constants.icons.color.light')}}"/>
                 </span>

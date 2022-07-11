@@ -40,6 +40,30 @@ class DatabaseSeeder extends Seeder
 
         Kapsam::create([
             'parent_id' => 1,
+            'title' => 'Matematik',
+            'tur' => 'ders',
+        ]);
+
+        Kapsam::create([
+            'parent_id' => 2,
+            'title' => 'Matematik',
+            'tur' => 'ders',
+        ]);
+
+        Kapsam::create([
+            'parent_id' => 1,
+            'title' => 'Fizik',
+            'tur' => 'ders',
+        ]);
+
+        Kapsam::create([
+            'parent_id' => 2,
+            'title' => 'Fizik',
+            'tur' => 'ders',
+        ]);
+
+        Kapsam::create([
+            'parent_id' => 1,
             'title' => 'Türkçe',
             'tur' => 'ders',
         ]);
@@ -70,18 +94,6 @@ class DatabaseSeeder extends Seeder
 
         Kapsam::create([
             'parent_id' => 1,
-            'title' => 'Matematik',
-            'tur' => 'ders',
-        ]);
-
-        Kapsam::create([
-            'parent_id' => 1,
-            'title' => 'Fizik',
-            'tur' => 'ders',
-        ]);
-
-        Kapsam::create([
-            'parent_id' => 1,
             'title' => 'Kimya',
             'tur' => 'ders',
         ]);
@@ -89,18 +101,6 @@ class DatabaseSeeder extends Seeder
         Kapsam::create([
             'parent_id' => 1,
             'title' => 'Biyoloji',
-            'tur' => 'ders',
-        ]);
-
-        Kapsam::create([
-            'parent_id' => 2,
-            'title' => 'Matematik',
-            'tur' => 'ders',
-        ]);
-
-        Kapsam::create([
-            'parent_id' => 2,
-            'title' => 'Fizik',
             'tur' => 'ders',
         ]);
 

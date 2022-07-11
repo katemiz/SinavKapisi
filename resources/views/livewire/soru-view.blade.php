@@ -70,31 +70,19 @@
                             <div class="column is-narrow has-text-weight-bold has-text-info">{{$harfler[$k] }})</div>
                             <div class="column px-3 has-text-weight-light is-size-4">{!! $sec->icerik !!}</div>
                             <div class="column is-narrow has-text-weight-bold has-text-info">
-                                <a href="/secenek-form/{{$soru->id}}/{{$sec->id}}" class="icon" data-toggle="tooltip" title='Düzenle'>
-                                    <x-icon icon="edit" fill="{{config('constants.icons.color.active')}}"/>
-                                </a>
 
 
                                 <form method="POST" action="/secenek-del/{{$soru->id}}/{{$sec->id}}" id="fs{{$sec->id}}">
                                     @csrf
 
-                                    {{-- <input name="_method" type="hidden" value="DELETE"> --}}
+                                    <a href="/secenek-form/{{$soru->id}}/{{$sec->id}}" class="icon" data-toggle="tooltip" title='Düzenle'>
+                                        <x-icon icon="edit" fill="{{config('constants.icons.color.active')}}"/>
+                                    </a>
 
                                     <a onclick="deleteConfirm({{$sec->id}})" class="icon" data-toggle="tooltip" title='Sil'>
                                         <x-icon icon="delete" fill="{{config('constants.icons.color.danger')}}"/>
                                     </a>
-
                                 </form>
-
-
-
-
-
-
-
-
-
-
                             </div>
                         </div>
 
