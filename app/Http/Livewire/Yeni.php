@@ -3,23 +3,20 @@
 namespace App\Http\Livewire;
 
 use App\Models\Kapsam;
+use App\Models\Secenek;
 use App\Models\Soru;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
-class SoruForm extends Component
+class Yeni extends Component
 {
+    public $qid = 0;
     public $soru = false;
+
+    public $actiontype;
+
     public $sinavlar;
     public $dersler;
-
-    public $selected_sinav = false;
-    public $selected_ders = false;
-
-    public $soru_ici = '<p>Aşağıdaki cümlelerin hangisinde yazım yanlışı <strong><u>yoktur</u></strong>?</p>';
-    public $soru_onu = '<p>Aşağıdaki cümlelerin hangisinde yazım yanlışı <strong><u>yoktur</u></strong>?</p>';
-
-    public $gui_action = 'form';
 
     public $harfler = [
         '0' => 'A',
@@ -31,11 +28,23 @@ class SoruForm extends Component
         '6' => 'G',
     ];
 
+    public $selected_sinav = false;
+    public $selected_ders = false;
+
+    public $placeholders = [
+        'soru_onu' =>
+            '<p>Aşağıdaki cümlelerin hangisinde yazım yanlışı <strong><u>yoktur</u></strong>?</p>',
+        'soru_ici' =>
+            '<p>Aşağıdaki cümlelerin hangisinde yazım yanlışı <strong><u>yoktur</u></strong>?</p>',
+    ];
+
     protected $listeners = [
-        'edit' => 'edit',
         'insert' => 'insert',
         'update' => 'update',
-        'delete' => 'delete',
+        'soru_edit' => 'editSoru',
+        'secenek_insert' => 'insertSecenek',
+        'secenek_update' => 'updateSecenek',
+        'secenek_delete' => 'deleteSecenek',
     ];
 
     public function mount()
@@ -61,15 +70,8 @@ class SoruForm extends Component
         }
 
         if (request('action')) {
-            $this->gui_action = request('action');
+            $this->actiontype = request('action');
         }
-    }
-
-    public function edit($qid)
-    {
-        $this->soru = Soru::find($qid);
-
-        $this->gui_action = 'form';
     }
 
     public function insert($p)
@@ -81,26 +83,42 @@ class SoruForm extends Component
 
         $this->soru = Soru::create($props);
 
-        $this->gui_action = 'view';
+        $this->actiontype = 'view';
     }
 
-    public function update($p)
+    public function update()
+    {
+        $this->actiontype = 'view';
+    }
+
+    public function insertSecenek($p)
     {
         $props['user_id'] = Auth::id();
-        $props['kapsam_id'] = $p['kapsam_id'];
-        $props['soru_background'] = $p['soru_background'];
-        $props['soru'] = $p['soru'];
+        $props['soru_id'] = $p['qid'];
+        $props['icerik'] = $p['icerik'];
+        $props['dogru_mu'] = $p['dogru_mu'];
 
-        Soru::find($p['qid'])->update($props);
+        Secenek::create($props);
         $this->soru = Soru::find($p['qid']);
 
-        $this->gui_action = 'view';
+        $this->actiontype = 'view';
+    }
+
+    public function deleteSecenek($qid, $id)
+    {
+        Secenek::find($id)->delete();
+        $this->soru = Soru::find($qid);
+        $this->actiontype = 'view';
+    }
+
+    public function editSoru($id)
+    {
+        $this->soru = Soru::find($id);
+        $this->actiontype = 'form';
     }
 
     public function render()
     {
-        return view('livewire.soru', [
-            'soru' => $this->soru,
-        ]);
+        return view('livewire.yeni');
     }
 }

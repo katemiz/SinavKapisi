@@ -15,7 +15,7 @@
             <p class="has-text-weight-light has-text-centered-mobile has-text-warning">{{config('constants.app.name')}}</p>
 
             <figure class="image flex is-centered">
-                <img alt="happy end" class="hero-background" src="images/happy.svg">
+                <img alt="happy end" class="hero-background" src="/images/happy.svg">
             </figure>
             <p class="has-text-weight-light has-text-centered-mobile has-text-white">{{config('constants.app.title')}}</p>
             <p class="has-text-weight-light has-text-centered-mobile has-text-white">{{config('constants.app.description')}}</p>

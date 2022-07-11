@@ -1,7 +1,6 @@
-window.addEventListener('load', (event) => {
-  console.log('page is fully loaded')
+window.onload = (event) => {
   loadEditors()
-})
+}
 
 function loadEditors() {
   console.log('loading')
@@ -41,9 +40,35 @@ function loadEditors() {
 }
 
 function select(sinav, ders, ders_id) {
-  document.getElementById('baslik').innerHTML = sinav + ' ' + ders
+  document.getElementById('baslik').innerHTML = sinav + ' / ' + ders
   document.getElementById('active_sinav').innerHTML = sinav
   document.getElementById('active_ders').innerHTML = ders
-
   document.getElementById('selected_ders').value = ders_id
+}
+
+function edit(id) {
+  window.livewire.emit('edit', id)
+}
+
+function readFormValues() {
+  const props = {
+    qid: document.getElementById('qid').value,
+    kapsam_id: document.getElementById('selected_ders').value,
+    soru_background: document.getElementById('ckeditor').value,
+    soru: document.getElementById('ckeditor2').value,
+  }
+
+  return props
+}
+
+function submitForm(event) {
+  event.preventDefault()
+
+  const props = readFormValues()
+
+  if (document.getElementById('action').value == 'upd') {
+    window.livewire.emit('update', props)
+  } else {
+    window.livewire.emit('insert', props)
+  }
 }

@@ -3,7 +3,9 @@
 use App\Http\Controllers\SoruController;
 use App\Http\Livewire\SoruForm;
 use App\Http\Livewire\SoruList;
+use App\Http\Livewire\SoruView;
 use App\Http\Livewire\Tree;
+use App\Http\Livewire\Yeni;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,7 +40,29 @@ Route::get('/kapsam', Tree::class);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/soru-list', SoruList::class);
-    Route::get('/soru-ekle', SoruForm::class);
+    Route::get('/soru/{action}/{id}', Yeni::class);
+
+    Route::get('/soru-add', [SoruController::class, 'add']);
+    Route::get('/soru-edit/{id}', [SoruController::class, 'add']);
     Route::post('/soru-insert', [SoruController::class, 'insert']);
-    Route::get('/soru-view/{id}', [SoruController::class, 'view']);
+    Route::post('/soru-update/{id}', [SoruController::class, 'insert']);
+
+    Route::get('/soru-view/{id}', [SoruController::class, 'view'])->name(
+        'soruview'
+    );
+
+    Route::get('/secenek-form/{id}/{secId}', [
+        SoruController::class,
+        'secenekForm',
+    ]);
+    Route::post('/secenek-ins/{id}', [SoruController::class, 'insertSecenek']);
+    Route::post('/secenek-upd/{id}/{secId}', [
+        SoruController::class,
+        'updateSecenek',
+    ]);
+
+    Route::post('/secenek-del/{id}/{secId}', [
+        SoruController::class,
+        'deleteSecenek',
+    ]);
 });

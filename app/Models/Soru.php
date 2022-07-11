@@ -14,6 +14,16 @@ class Soru extends Model
 
     protected $table = 'sorular';
 
+
+
+    public function secenekler()
+    {
+        return $this->hasMany(Secenek::class);
+    }
+
+
+
+
     protected function ders(): Attribute
     {
         return new Attribute(

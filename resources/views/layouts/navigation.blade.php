@@ -24,8 +24,12 @@
 
 
 
-        <a href="/soru-ekle" class="navbar-item">
+        <a href="/soru-add" class="navbar-item">
             Soru Ekle
+        </a>
+
+        <a href="/soru-list" class="navbar-item">
+            Sorular
         </a>
 
         @if(Auth::check())
