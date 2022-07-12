@@ -98,8 +98,8 @@ class SoruController extends Controller
     {
         $props['user_id'] = Auth::id();
         $props['kapsam_id'] = $req->input('sders');
-        $props['soru'] = $req->input('editor_data2');
         $props['soru_background'] = $req->input('editor_data1');
+        $props['soru'] = $req->input('editor_data2');
 
         $soru = Soru::create($props);
 
@@ -110,8 +110,8 @@ class SoruController extends Controller
     {
         $props['user_id'] = Auth::id();
         $props['kapsam_id'] = $req->input('sders');
-        $props['soru'] = $req->input('editor_data1');
-        $props['soru_background'] = $req->input('editor_data2');
+        $props['soru_background'] = $req->input('editor_data1');
+        $props['soru'] = $req->input('editor_data2');
 
         Soru::find(request('id'))->update($props);
 

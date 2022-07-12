@@ -46,7 +46,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/soru-add', [SoruController::class, 'add']);
     Route::get('/soru-edit/{id}', [SoruController::class, 'add']);
     Route::post('/soru-insert', [SoruController::class, 'insert']);
-    Route::post('/soru-update/{id}', [SoruController::class, 'insert']);
+    Route::post('/soru-update/{id}', [SoruController::class, 'update']);
 
     Route::get('/soru-view/{id}', [SoruController::class, 'view'])->name(
         'soruview'

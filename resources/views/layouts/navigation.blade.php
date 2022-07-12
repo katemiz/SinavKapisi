@@ -34,8 +34,8 @@
 
         @if(Auth::check())
 
-           <a href="{{route('dashboard')}}" class="navbar-item">
-                Login Action 1
+           <a href="/sinav-ekle" class="navbar-item">
+                Sınav Ekle
             </a>
 
             <a href="/list-records/asset" class="navbar-item">

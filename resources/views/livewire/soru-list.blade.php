@@ -66,7 +66,7 @@
 
 
                     <td>
-                        <a href="/bina-view/{{$soru->id}}">
+                        <a href="/soru-view/{{$soru->id}}">
                             {!! $soru->soru !!}
                         </a>
                     </td>
@@ -82,7 +82,7 @@
                         <x-icon icon="eye" fill="{{config('constants.icons.color.active')}}"/>
 
                     </a>
-                    <a href="/soru-form/{bina.id}/{item.id}" class="icon">
+                    <a href="/soru-edit/{{$soru->id}}}" class="icon">
                         <x-icon icon="edit" fill="{{config('constants.icons.color.active')}}"/>
                     </a>
                     </td>

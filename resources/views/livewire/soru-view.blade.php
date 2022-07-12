@@ -18,6 +18,10 @@
 
             <!-- Right side -->
             <div class="level-right">
+                <a href="/soru-publish/{{$soru->id}}" class="icon" data-toggle="tooltip" title='Soru Yayınla'>
+                    <x-icon icon="publish" fill="{{config('constants.icons.color.active')}}"/>
+                </a>
+
                 <a href="/soru-edit/{{$soru->id}}" class="icon" data-toggle="tooltip" title='Soru İçeriği Değiştir'>
                     <x-icon icon="edit" fill="{{config('constants.icons.color.active')}}"/>
                 </a>
@@ -71,9 +75,10 @@
                             <div class="column px-3 has-text-weight-light is-size-4">{!! $sec->icerik !!}</div>
                             <div class="column is-narrow has-text-weight-bold has-text-info">
 
-
                                 <form method="POST" action="/secenek-del/{{$soru->id}}/{{$sec->id}}" id="fs{{$sec->id}}">
                                     @csrf
+
+                                    <x-icon icon="{{$sec->dogru_mu ? 'correct':'wrong'}}" fill="{{config('constants.icons.color.inactive')}}"/>
 
                                     <a href="/secenek-form/{{$soru->id}}/{{$sec->id}}" class="icon" data-toggle="tooltip" title='Düzenle'>
                                         <x-icon icon="edit" fill="{{config('constants.icons.color.active')}}"/>

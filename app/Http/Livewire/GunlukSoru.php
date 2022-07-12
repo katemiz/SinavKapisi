@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Secenek;
 use App\Models\Soru;
 use Illuminate\Support\Facades\Config;
 use Livewire\Component;
@@ -9,6 +10,9 @@ use Livewire\Component;
 class GunlukSoru extends Component
 {
     public $soru;
+    public $secili_cevap = false;
+    public $is_there_response = false;
+    public $is_response_correct = false;
 
     public function mount()
     {
@@ -31,10 +35,26 @@ class GunlukSoru extends Component
             ->first();
     }
 
+    public function cevapSec($secId)
+    {
+        $this->is_there_response = false;
+        $this->is_response_correct = false;
+
+        $this->secili_cevap = $secId;
+    }
+
+    public function checkCevap($secId)
+    {
+        $this->is_there_response = true;
+        $secili = Secenek::find($secId);
+
+        if ($secili->dogru_mu) {
+            $this->is_response_correct = true;
+        }
+    }
+
     public function render()
     {
-        // dd($this->soru);
-
         return view('livewire.gunluk-soru', [
             'soru' => $this->soru,
             'harfler' => Config::get('constants.harfler'),

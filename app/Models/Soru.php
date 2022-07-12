@@ -14,6 +14,10 @@ class Soru extends Model
 
     protected $table = 'sorular';
 
+    // protected $casts = [
+    //     'created_at' => 'datetime:Y-m-d',
+    // ];
+
 
 
     public function secenekler()
