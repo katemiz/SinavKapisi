@@ -1,10 +1,9 @@
 <?php
 
+use App\Http\Controllers\SinavEkleResimController;
 use App\Http\Controllers\SoruController;
 use App\Http\Livewire\GunlukSoru;
-use App\Http\Livewire\SoruForm;
 use App\Http\Livewire\SoruList;
-use App\Http\Livewire\SoruView;
 use App\Http\Livewire\Tree;
 use App\Http\Livewire\Yeni;
 use Illuminate\Support\Facades\Route;
@@ -68,4 +67,5 @@ Route::middleware(['auth'])->group(function () {
     ]);
 
     Route::get('/gunluk-soru/{tur}', GunlukSoru::class);
+    Route::get('/sinav-ekle', [SinavEkleResimController::class, 'form']);
 });
