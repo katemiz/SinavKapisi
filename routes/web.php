@@ -78,7 +78,9 @@ Route::middleware(['auth'])->group(function () {
         'sinavresimview'
     );
 
-    Route::get('/chartisan', function () {
-        return view('chartisan', ['name' => 'James']);
-    });
+    Route::get('/harun', Harun::class);
+
+    // Route::get('/harun', function () {
+    //     return view('chartisan', ['name' => 'James']);
+    // });
 });
