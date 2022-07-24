@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\KapsamGroup;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,13 +12,9 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('kapsam', function (Blueprint $table) {
+        Schema::create('kapsam_group', function (Blueprint $table) {
             $table->id();
-            $table->integer('parent_id')->default(0);
-            $table->foreignIdFor(KapsamGroup::class)->nullable();
-            $table->string('title')->default('Bu konu başlığı');
-            $table->string('abbr')->nullable();
-            $table->string('tur');
+            $table->string('title');
             $table->timestamps();
         });
     }
@@ -31,6 +26,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('kapsam');
+        Schema::dropIfExists('kapsam_group');
     }
 };

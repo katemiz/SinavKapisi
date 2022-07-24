@@ -42,6 +42,10 @@
                 Login Action 2
             </a>
 
+            <a href="/chartisan" class="navbar-item">
+                Chartisan
+            </a>
+
           @endif
 
       </div>

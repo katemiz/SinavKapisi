@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\SinavEkleResimController;
+use App\Http\Controllers\SinavResimController;
 use App\Http\Controllers\SoruController;
 use App\Http\Livewire\GunlukSoru;
+use App\Http\Livewire\SinavResimView;
 use App\Http\Livewire\SoruList;
 use App\Http\Livewire\Tree;
 use App\Http\Livewire\Yeni;
@@ -67,5 +68,17 @@ Route::middleware(['auth'])->group(function () {
     ]);
 
     Route::get('/gunluk-soru/{tur}', GunlukSoru::class);
-    Route::get('/sinav-ekle', [SinavEkleResimController::class, 'form']);
+    Route::get('/sinav-ekle', [SinavResimController::class, 'form']);
+    Route::post('sinav-storefiles', [
+        SinavResimController::class,
+        'storefiles',
+    ]);
+
+    Route::get('/sinav-resim-view/{id}', SinavResimView::class)->name(
+        'sinavresimview'
+    );
+
+    Route::get('/chartisan', function () {
+        return view('chartisan', ['name' => 'James']);
+    });
 });
