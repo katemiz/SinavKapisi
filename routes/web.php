@@ -3,6 +3,7 @@
 use App\Http\Controllers\SinavResimController;
 use App\Http\Controllers\SoruController;
 use App\Http\Livewire\GunlukSoru;
+use App\Http\Livewire\Harun;
 use App\Http\Livewire\SinavResimView;
 use App\Http\Livewire\SoruList;
 use App\Http\Livewire\Tree;

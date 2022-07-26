@@ -5,11 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class KapsamGroup extends Model
+class KapsamDal extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
+    protected $table = 'kapsam_dal';
 
-    protected $table = 'kapsam_group';
+    public function dersler()
+    {
+        return $this->hasMany(KapsamDers::class);
+    }
 }

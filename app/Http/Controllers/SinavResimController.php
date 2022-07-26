@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kapsam;
+use App\Models\KapsamSinav;
 use App\Models\Page;
 use App\Models\SinavResim;
 use Illuminate\Http\Request;
@@ -13,10 +13,7 @@ class SinavResimController extends Controller
 {
     public function form(Request $req)
     {
-        $a = Kapsam::with('children')
-            ->where('parent_id', '=', '0')
-            ->orderBy('title', 'asc')
-            ->get();
+        $a = KapsamSinav::all();
 
         return view('sinav-ekle-resim', [
             'kapsam' => $a,

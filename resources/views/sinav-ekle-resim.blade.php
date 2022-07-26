@@ -133,26 +133,67 @@
 
             <div class="columns">
 
-                @foreach ($kapsam as $parent)
+                @foreach ($kapsam as $sinav)
 
                     <div class="column field">
 
                         <div class="control">
                             <label class="radio">
-                                <input type="radio" name="sinavturu" value="{{ $parent->id }}" > {{ $parent->title }}
+                                <input type="radio" name="sinavturu" value="{{ $sinav->id }}" > {{ $sinav->title }}
                             </label>
                             <br>
                         </div>
 
-                        @if ($parent->children->count())
-                        @foreach ($parent->children as $child)
+
+
+                        @if ($sinav->directDersler->count())
+                        <div class="column ml-4">
+                        @foreach ($sinav->directDersler as $directDers)
                             <div class="control" id="evsahibi">
                                 <label class="radio">
-                                    <input type="radio" name="sinavturu" value="{{ $child->id }}" > {{ $child->title }}
+                                    <input type="radio" name="sinavturu" value="{{ $directDers->id }}" > {{ $directDers->title }}
                                 </label>
-                                <br>
                             </div>
+
                         @endforeach
+                        </div>
+                        @endif
+
+
+
+
+
+
+
+                        @if ($sinav->dallar->count())
+                        <div class="column ml-4">
+                        @foreach ($sinav->dallar as $dal)
+                            <div class="control" id="evsahibi">
+                                <label class="radio">
+                                    <input type="radio" name="sinavturu" value="{{ $dal->id }}" > {{ $dal->title }}
+                                </label>
+                            </div>
+
+                            @if ($dal->dersler->count())
+
+                            <div class="column ml-4">
+
+                                @foreach ($dal->dersler as $ders)
+
+                                <div class="control" id="evsahibi">
+                                    <label class="radio">
+                                        <input type="radio" name="sinavturu" value="{{ $ders->id }}" > {{ $ders->title }}
+                                    </label>
+                                </div>
+
+                                @endforeach
+
+                            </div>
+
+                            @endif
+
+                        @endforeach
+                        </div>
                         @endif
                     </div>
 

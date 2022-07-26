@@ -3,8 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\HarunSonuc;
-use App\Models\Kapsam;
-use App\Models\KapsamGroup;
+use App\Models\KapsamDal;
+use App\Models\KapsamDers;
+use App\Models\KapsamSinav;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -24,141 +25,128 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        KapsamGroup::create([
+        KapsamSinav::create([
             'id' => 1,
-            'title' => 'TYT-SOS',
-        ]);
-
-        KapsamGroup::create([
-            'id' => 2,
-            'title' => 'TYT-FEN',
-        ]);
-
-        KapsamGroup::create([
-            'id' => 3,
-            'title' => 'AYT-FEN',
-        ]);
-
-        Kapsam::create([
-            'id' => 1,
-            'parent_id' => 0,
-            'kapsam_group_id' => null,
             'title' => 'Temel Yeterlilik Sınavı',
             'abbr' => 'TYT',
-            'tur' => 'sinav',
         ]);
 
-        Kapsam::create([
+        KapsamSinav::create([
             'id' => 2,
-            'parent_id' => 0,
-            'kapsam_group_id' => null,
             'title' => 'Alan Yeterlilik Sınavı',
             'abbr' => 'AYT',
-            'tur' => 'sinav',
         ]);
 
-        Kapsam::create([
-            'parent_id' => 1,
-            'kapsam_group_id' => null,
-            'title' => 'Matematik',
-            'abbr' => 'MAT',
-            'tur' => 'ders',
+        KapsamDal::create([
+            'id' => 1,
+            'kapsam_sinav_id' => 1,
+            'title' => 'TYT-SOS',
+            'abbr' => 'SOS',
         ]);
 
-        Kapsam::create([
-            'parent_id' => 2,
-            'kapsam_group_id' => null,
-            'title' => 'Matematik',
-            'abbr' => 'MAT',
-            'tur' => 'ders',
+        KapsamDal::create([
+            'id' => 2,
+            'kapsam_sinav_id' => 1,
+            'title' => 'TYT-FEN',
+            'abbr' => 'FEN',
         ]);
 
-        Kapsam::create([
-            'parent_id' => 1,
-            'kapsam_group_id' => 2,
-            'title' => 'Fizik',
-            'abbr' => 'FİZ',
-            'tur' => 'ders',
+        KapsamDal::create([
+            'id' => 3,
+            'kapsam_sinav_id' => 2,
+            'title' => 'AYT-FEN',
+            'abbr' => 'FEN',
         ]);
 
-        Kapsam::create([
-            'parent_id' => 2,
-            'kapsam_group_id' => 3,
-            'title' => 'Fizik',
-            'abbr' => 'FİZ',
-            'tur' => 'ders',
-        ]);
-
-        Kapsam::create([
-            'parent_id' => 1,
-            'kapsam_group_id' => null,
+        KapsamDers::create([
+            'kapsam_sinav_id' => 1,
+            'kapsam_dal_id' => null,
             'title' => 'Türkçe',
             'abbr' => 'TUR',
-            'tur' => 'ders',
         ]);
 
-        Kapsam::create([
-            'parent_id' => 1,
-            'kapsam_group_id' => 1,
+        KapsamDers::create([
+            'kapsam_sinav_id' => 1,
+            'kapsam_dal_id' => 1,
             'title' => 'Tarih',
             'abbr' => 'TAR',
-            'tur' => 'ders',
         ]);
 
-        Kapsam::create([
-            'parent_id' => 1,
-            'kapsam_group_id' => 1,
+        KapsamDers::create([
+            'kapsam_sinav_id' => 1,
+            'kapsam_dal_id' => 1,
             'title' => 'Coğrafya',
-            'abbr' => 'COG',
-            'tur' => 'ders',
+            'abbr' => 'COĞ',
         ]);
 
-        Kapsam::create([
-            'parent_id' => 1,
+        KapsamDers::create([
+            'kapsam_sinav_id' => 1,
+            'kapsam_dal_id' => 1,
             'title' => 'Felsefe',
-            'kapsam_group_id' => 1,
             'abbr' => 'FEL',
-            'tur' => 'ders',
         ]);
 
-        Kapsam::create([
-            'parent_id' => 1,
+        KapsamDers::create([
+            'kapsam_sinav_id' => 1,
+            'kapsam_dal_id' => 1,
             'title' => 'Din Bilgisi',
-            'kapsam_group_id' => 1,
             'abbr' => 'DIN',
-            'tur' => 'ders',
         ]);
 
-        Kapsam::create([
-            'parent_id' => 1,
-            'kapsam_group_id' => 2,
+        KapsamDers::create([
+            'kapsam_sinav_id' => 1,
+            'kapsam_dal_id' => null,
+            'title' => 'Matematik',
+            'abbr' => 'MAT',
+        ]);
+
+        KapsamDers::create([
+            'kapsam_sinav_id' => 1,
+            'kapsam_dal_id' => 2,
+            'title' => 'Fizik',
+            'abbr' => 'FİZ',
+        ]);
+
+        KapsamDers::create([
+            'kapsam_sinav_id' => 1,
+            'kapsam_dal_id' => 2,
             'title' => 'Kimya',
             'abbr' => 'KIM',
-            'tur' => 'ders',
         ]);
 
-        Kapsam::create([
-            'parent_id' => 1,
-            'kapsam_group_id' => 2,
+        KapsamDers::create([
+            'kapsam_sinav_id' => 1,
+            'kapsam_dal_id' => 2,
             'title' => 'Biyoloji',
             'abbr' => 'BIY',
-            'tur' => 'ders',
         ]);
 
-        Kapsam::create([
-            'parent_id' => 2,
-            'kapsam_group_id' => 3,
+        KapsamDers::create([
+            'kapsam_sinav_id' => 2,
+            'kapsam_dal_id' => null,
+            'title' => 'Matematik',
+            'abbr' => 'MAT',
+        ]);
+
+        KapsamDers::create([
+            'kapsam_sinav_id' => 2,
+            'kapsam_dal_id' => 3,
+            'title' => 'Fizik',
+            'abbr' => 'FİZ',
+        ]);
+
+        KapsamDers::create([
+            'kapsam_sinav_id' => 2,
+            'kapsam_dal_id' => 3,
             'title' => 'Kimya',
             'abbr' => 'KIM',
-            'tur' => 'ders',
         ]);
 
-        Kapsam::create([
-            'parent_id' => 2,
-            'kapsam_group_id' => 3,
+        KapsamDers::create([
+            'kapsam_sinav_id' => 2,
+            'kapsam_dal_id' => 3,
             'title' => 'Biyoloji',
-            'abbr' => 'BIY',
-            'tur' => 'ders',
+            'abbr' => 'KIM',
         ]);
 
         HarunSonuc::create([
@@ -270,14 +258,14 @@ class DatabaseSeeder extends Seeder
         ]);
 
         HarunSonuc::create([
-            'sinav_tarihi' => '2020-07-21',
-            'tur_dogru' => 23,
-            'tur_yanlis' => 17,
+            'sinav_tarihi' => '2020-07-24',
+            'tur_dogru' => 26,
+            'tur_yanlis' => 14,
             'sos_dogru' => 14,
             'sos_yanlis' => 6,
-            'mat_dogru' => 29,
-            'mat_yanlis' => 8,
-            'fen_dogru' => 11,
+            'mat_dogru' => 25,
+            'mat_yanlis' => 12,
+            'fen_dogru' => 12,
             'fen_yanlis' => 8,
         ]);
     }
