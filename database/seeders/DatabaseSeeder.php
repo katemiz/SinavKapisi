@@ -29,124 +29,137 @@ class DatabaseSeeder extends Seeder
             'id' => 1,
             'title' => 'Temel Yeterlilik Sınavı',
             'abbr' => 'TYT',
+            'ssayisi' => 120,
         ]);
 
         KapsamSinav::create([
             'id' => 2,
             'title' => 'Alan Yeterlilik Sınavı',
             'abbr' => 'AYT',
+            'ssayisi' => 80,
         ]);
 
         KapsamDal::create([
             'id' => 1,
             'kapsam_sinav_id' => 1,
-            'title' => 'TYT-SOS',
-            'abbr' => 'SOS',
-        ]);
-
-        KapsamDal::create([
-            'id' => 2,
-            'kapsam_sinav_id' => 1,
-            'title' => 'TYT-FEN',
-            'abbr' => 'FEN',
-        ]);
-
-        KapsamDal::create([
-            'id' => 3,
-            'kapsam_sinav_id' => 2,
-            'title' => 'AYT-FEN',
-            'abbr' => 'FEN',
-        ]);
-
-        KapsamDers::create([
-            'kapsam_sinav_id' => 1,
-            'kapsam_dal_id' => null,
             'title' => 'Türkçe',
-            'abbr' => 'TUR',
+            'abbr' => 'TYT-TUR',
+            'ssayisi' => 40,
+        ]);
+
+        KapsamDal::create([
+            'kapsam_sinav_id' => 1,
+            'title' => 'Sosyal Bilgiler',
+            'abbr' => 'TYT-SOS',
+            'ssayisi' => 20,
+        ]);
+
+        KapsamDal::create([
+            'kapsam_sinav_id' => 1,
+            'title' => 'Matematik',
+            'abbr' => 'TYT-MAT',
+            'ssayisi' => 40,
+        ]);
+
+        KapsamDal::create([
+            'kapsam_sinav_id' => 1,
+            'title' => 'Fen Bilgisi',
+            'abbr' => 'TYT-FEN',
+            'ssayisi' => 20,
+        ]);
+
+        KapsamDal::create([
+            'kapsam_sinav_id' => 2,
+            'title' => 'Matematik',
+            'abbr' => 'AYT-MAT',
+            'ssayisi' => 40,
+        ]);
+
+        KapsamDal::create([
+            'kapsam_sinav_id' => 2,
+            'title' => 'Fen Bilgisi',
+            'abbr' => 'AYT-FEN',
+            'ssayisi' => 40,
         ]);
 
         KapsamDers::create([
             'kapsam_sinav_id' => 1,
-            'kapsam_dal_id' => 1,
+            'kapsam_dal_id' => 2,
             'title' => 'Tarih',
-            'abbr' => 'TAR',
+            'abbr' => 'TYT-TAR',
+            'ssayisi' => 5,
         ]);
 
         KapsamDers::create([
             'kapsam_sinav_id' => 1,
-            'kapsam_dal_id' => 1,
+            'kapsam_dal_id' => 2,
             'title' => 'Coğrafya',
-            'abbr' => 'COĞ',
+            'abbr' => 'TYT-COĞ',
+            'ssayisi' => 5,
         ]);
 
         KapsamDers::create([
             'kapsam_sinav_id' => 1,
-            'kapsam_dal_id' => 1,
+            'kapsam_dal_id' => 2,
             'title' => 'Felsefe',
-            'abbr' => 'FEL',
+            'abbr' => 'TYT-FEL',
+            'ssayisi' => 5,
         ]);
 
         KapsamDers::create([
             'kapsam_sinav_id' => 1,
-            'kapsam_dal_id' => 1,
+            'kapsam_dal_id' => 2,
             'title' => 'Din Bilgisi',
-            'abbr' => 'DIN',
+            'abbr' => 'TYT-DIN',
+            'ssayisi' => 5,
         ]);
 
         KapsamDers::create([
             'kapsam_sinav_id' => 1,
-            'kapsam_dal_id' => null,
-            'title' => 'Matematik',
-            'abbr' => 'MAT',
-        ]);
-
-        KapsamDers::create([
-            'kapsam_sinav_id' => 1,
-            'kapsam_dal_id' => 2,
+            'kapsam_dal_id' => 4,
             'title' => 'Fizik',
-            'abbr' => 'FİZ',
+            'abbr' => 'TYT-FİZ',
+            'ssayisi' => 7,
         ]);
 
         KapsamDers::create([
             'kapsam_sinav_id' => 1,
-            'kapsam_dal_id' => 2,
+            'kapsam_dal_id' => 4,
             'title' => 'Kimya',
-            'abbr' => 'KIM',
+            'abbr' => 'TYT-KIM',
+            'ssayisi' => 7,
         ]);
 
         KapsamDers::create([
             'kapsam_sinav_id' => 1,
-            'kapsam_dal_id' => 2,
+            'kapsam_dal_id' => 4,
             'title' => 'Biyoloji',
-            'abbr' => 'BIY',
+            'abbr' => 'TYT-BIY',
+            'ssayisi' => 6,
         ]);
 
         KapsamDers::create([
             'kapsam_sinav_id' => 2,
-            'kapsam_dal_id' => null,
-            'title' => 'Matematik',
-            'abbr' => 'MAT',
-        ]);
-
-        KapsamDers::create([
-            'kapsam_sinav_id' => 2,
-            'kapsam_dal_id' => 3,
+            'kapsam_dal_id' => 6,
             'title' => 'Fizik',
-            'abbr' => 'FİZ',
+            'abbr' => 'AYT-FİZ',
+            'ssayisi' => 14,
         ]);
 
         KapsamDers::create([
             'kapsam_sinav_id' => 2,
-            'kapsam_dal_id' => 3,
+            'kapsam_dal_id' => 6,
             'title' => 'Kimya',
-            'abbr' => 'KIM',
+            'abbr' => 'AYT-KIM',
+            'ssayisi' => 13,
         ]);
 
         KapsamDers::create([
             'kapsam_sinav_id' => 2,
-            'kapsam_dal_id' => 3,
+            'kapsam_dal_id' => 6,
             'title' => 'Biyoloji',
-            'abbr' => 'KIM',
+            'abbr' => 'AYT-BİY',
+            'ssayisi' => 13,
         ]);
 
         HarunSonuc::create([

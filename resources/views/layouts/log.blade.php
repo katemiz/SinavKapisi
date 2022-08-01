@@ -35,7 +35,7 @@
 
                 <div class="column is-offset-3 is-offset-4-mobile is-6 is-4-mobile my-6">
                     <figure class="image">
-                        <img src="/images/{{config('constants.app.app_header_logo')}}" alt="{{config('constants.app.name')}}">
+                        <img src="/images/{{config('constants.app.app_login_logo')}}" alt="{{config('constants.app.name')}}">
                     </figure>
                 </div>
 

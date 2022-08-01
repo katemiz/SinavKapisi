@@ -22,20 +22,18 @@
             Konular
         </a>
 
-
-
         <a href="/soru-add" class="navbar-item">
-            Soru Ekle
+            eSoru Ekle
         </a>
 
         <a href="/soru-list" class="navbar-item">
-            Sorular
+            eSorular
         </a>
 
         @if(Auth::check())
 
            <a href="/sinav-ekle" class="navbar-item">
-                Sınav Ekle
+                Kağıt Sınav
             </a>
 
             <a href="/list-records/asset" class="navbar-item">

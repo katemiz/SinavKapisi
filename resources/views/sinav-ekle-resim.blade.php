@@ -123,13 +123,18 @@
     <div class="section container">
 
         <header>
-            <h1 class="title is-size-1 has-text-weight-light">Sınav Ekle</h1>
+            <h1 class="title is-size-1 has-text-weight-light">{{$sinav ? 'Sınav Resim Sayfa Ekle':'Sınav Ekle'}}</h1>
         </header>
 
-        <label class="label my-5" for="evsahibi">Sınav Türünü Seçiniz</label>
-
-        <form action="{{ '/sinav-storefiles' }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ $sinav ? '/sinav-storefiles/'.$sinav->id:'/sinav-storefiles' }}" method="POST" enctype="multipart/form-data">
             @csrf
+
+            @if ($sinav)
+
+            <h1 class="subtitle has-text-weight-light">{{$sinav->sinav}}  {{$sinav->dal}} {{$sinav->ders}}</h1>
+
+            @else
+            <label class="label my-5">Sınav Türünü Seçiniz</label>
 
             <div class="columns">
 
@@ -144,61 +149,46 @@
                             <br>
                         </div>
 
-
-
-                        @if ($sinav->directDersler->count())
-                        <div class="column ml-4">
-                        @foreach ($sinav->directDersler as $directDers)
-                            <div class="control" id="evsahibi">
-                                <label class="radio">
-                                    <input type="radio" name="sinavturu" value="{{ $directDers->id }}" > {{ $directDers->title }}
-                                </label>
-                            </div>
-
-                        @endforeach
-                        </div>
-                        @endif
-
-
-
-
-
-
-
                         @if ($sinav->dallar->count())
-                        <div class="column ml-4">
-                        @foreach ($sinav->dallar as $dal)
-                            <div class="control" id="evsahibi">
-                                <label class="radio">
-                                    <input type="radio" name="sinavturu" value="{{ $dal->id }}" > {{ $dal->title }}
-                                </label>
-                            </div>
-
-                            @if ($dal->dersler->count())
-
                             <div class="column ml-4">
-
-                                @foreach ($dal->dersler as $ders)
+                            @foreach ($sinav->dallar as $dal)
 
                                 <div class="control" id="evsahibi">
                                     <label class="radio">
-                                        <input type="radio" name="sinavturu" value="{{ $ders->id }}" > {{ $ders->title }}
+                                        <input type="radio" name="sinavturu" value="{{ $sinav->id }}:{{ $dal->id }}" > {{ $dal->title }}
                                     </label>
                                 </div>
 
-                                @endforeach
+                                @if ($dal->dersler->count())
 
+                                <div class="column ml-4">
+
+                                    @foreach ($dal->dersler as $ders)
+
+                                    <div class="control" id="evsahibi">
+                                        <label class="radio">
+                                            <input type="radio" name="sinavturu" value="{{ $sinav->id }}:{{ $dal->id }}:{{ $ders->id }}" > {{ $ders->title }}
+                                        </label>
+                                    </div>
+
+                                    @endforeach
+
+                                </div>
+
+                                @endif
+
+                            @endforeach
                             </div>
-
-                            @endif
-
-                        @endforeach
-                        </div>
                         @endif
+
+
+
+
                     </div>
 
                 @endforeach
             </div>
+            @endif
 
             <div class="column box mt-6">
 

@@ -20,7 +20,10 @@ class Page extends Model
 
 
 
-
+    public function sorular()
+    {
+        return $this->hasMany(ResimSoru::class);
+    }
 
 
 

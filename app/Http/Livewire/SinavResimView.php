@@ -2,7 +2,9 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\KapsamDal;
 use App\Models\Page;
+use App\Models\ResimSoru;
 use App\Models\SinavResim;
 use Livewire\Component;
 
@@ -12,7 +14,15 @@ class SinavResimView extends Component
     public $sinav = false;
     public $sayfalar = false;
     public $active_page_id = false;
+    public $active_page = false;
     public $active_page_data = false;
+    public $sayfaSayisi = false;
+
+    protected $listeners = [
+        'selectDal' => 'selectDal',
+        'soruSayfaRelation' => 'soruSayfaRelation',
+        'selectDogru' => 'selectDogru',
+    ];
 
     public function mount()
     {
@@ -37,9 +47,17 @@ class SinavResimView extends Component
 
     public function getActivePage()
     {
-        $sayfa = Page::find($this->active_page_id);
+        $this->active_page = Page::find($this->active_page_id);
 
-        $this->active_page_data = Page::imgEncode($sayfa->stored_as);
+        $this->active_page_data = Page::imgEncode(
+            $this->active_page->stored_as
+        );
+
+        if ($this->active_page->kapsam_dal_id != null) {
+            $this->sayfaSayisi = KapsamDal::find(
+                $this->active_page->kapsam_dal_id
+            )->ssayisi;
+        }
     }
 
     public function changePage($pageId)
@@ -85,5 +103,55 @@ class SinavResimView extends Component
         $this->active_page_id = $selPage->id;
 
         $this->getPages();
+    }
+
+    public function selectDal($id)
+    {
+        $props = [
+            'kapsam_dal_id' => $id,
+        ];
+
+        $this->sayfaSayisi = KapsamDal::find($id)->ssayisi;
+
+        if ($this->active_page->kapsam_dal_id != $id) {
+            ResimSoru::where('page_id', $this->active_page_id)->delete();
+        }
+
+        Page::find($this->active_page_id)->update($props);
+
+        $this->active_page = Page::find($this->active_page_id);
+    }
+
+    public function soruSayfaRelation($islem, $soruNo)
+    {
+        if ($islem == 'add') {
+            $props = [
+                'page_id' => $this->active_page_id,
+                'soruno' => $soruNo,
+            ];
+
+            ResimSoru::create($props);
+        }
+
+        if ($islem == 'remove') {
+            ResimSoru::where('page_id', $this->active_page_id)
+                ->where('soruno', $soruNo)
+                ->delete();
+        }
+
+        $this->active_page = Page::find($this->active_page_id);
+    }
+
+    public function selectDogru($soruNo, $harf)
+    {
+        $props = [
+            'dogrusecenek' => $harf,
+        ];
+
+        ResimSoru::where('page_id', $this->active_page_id)
+            ->where('soruno', $soruNo)
+            ->update($props);
+
+        $this->active_page = Page::find($this->active_page_id);
     }
 }

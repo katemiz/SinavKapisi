@@ -23,11 +23,23 @@ class KapsamSinav extends Model
         return $this->hasMany(KapsamDers::class);
     }
 
-    protected function directDersler(): Attribute
+
+    protected function sinavAdi(): Attribute
     {
         return new Attribute(
 
-            get: fn ($value, $attributes) => KapsamDers::whereNull('kapsam_dal_id')->where('kapsam_sinav_id','=',$attributes['id']),
+            // get: fn ($value, $attributes) => KapsamSinav::find($attributes['id'])->title,
+            get: fn ($value, $attributes) => $attributes['title'],
+
         );
     }
+
+
+    // protected function directDersler(): Attribute
+    // {
+    //     return new Attribute(
+
+    //         get: fn ($value, $attributes) => KapsamDers::whereNull('kapsam_dal_id')->where('kapsam_sinav_id','=',$attributes['id']),
+    //     );
+    // }
 }

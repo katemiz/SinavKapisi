@@ -69,8 +69,8 @@ Route::middleware(['auth'])->group(function () {
     ]);
 
     Route::get('/gunluk-soru/{tur}', GunlukSoru::class);
-    Route::get('/sinav-ekle', [SinavResimController::class, 'form']);
-    Route::post('sinav-storefiles', [
+    Route::get('/sinav-ekle/{id?}', [SinavResimController::class, 'form']);
+    Route::post('sinav-storefiles/{id?}', [
         SinavResimController::class,
         'storefiles',
     ]);

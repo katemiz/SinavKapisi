@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\KapsamDal;
+use App\Models\KapsamDers;
 use App\Models\SinavResim;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
@@ -23,6 +25,8 @@ return new class extends Migration {
             $table->string('filename');
             $table->string('stored_as');
             $table->integer('size');
+            $table->foreignIdFor(KapsamDal::class)->nullable();
+            $table->foreignIdFor(KapsamDers::class)->nullable();
             $table->timestamps();
         });
     }

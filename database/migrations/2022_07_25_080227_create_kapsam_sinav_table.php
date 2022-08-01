@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->id();
             $table->string('title');
             $table->string('abbr');
+            $table->integer('ssayisi');
             $table->timestamps();
         });
     }

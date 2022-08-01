@@ -18,6 +18,7 @@ return new class extends Migration {
             $table->foreignIdFor(KapsamSinav::class);
             $table->string('title');
             $table->string('abbr');
+            $table->integer('ssayisi');
             $table->timestamps();
         });
     }

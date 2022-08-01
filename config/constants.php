@@ -15,6 +15,7 @@ return [
         'welcome_header' => 'Özgür, Bedava ve Herkese Açık',
         'welcome_subtitle' => 'constants.welcome_subtitle',
         'description' => 'Akıllı Deneme Sınavları Merkezi',
+        'app_login_logo' => 'app_login_logo.svg',
         'app_header_logo' => 'app_header_logo.svg',
         'app_footer_logo' => 'app_footer_logo.svg',
         'version' => '2022.06.29',
