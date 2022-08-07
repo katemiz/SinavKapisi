@@ -2,13 +2,15 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\KagitSinav;
 use App\Models\KapsamDal;
 use App\Models\Page;
-use App\Models\ResimSoru;
+use App\Models\KagitSoru;
+use App\Models\KapsamSinav;
 use App\Models\SinavResim;
 use Livewire\Component;
 
-class SinavResimView extends Component
+class KagitSinavView extends Component
 {
     public $sinav_id = false;
     public $sinav = false;
@@ -17,30 +19,33 @@ class SinavResimView extends Component
     public $active_page = false;
     public $active_page_data = false;
     public $sayfaSayisi = false;
+    public $isKapsamEdit = false;
 
     protected $listeners = [
         'selectDal' => 'selectDal',
         'soruSayfaRelation' => 'soruSayfaRelation',
         'selectDogru' => 'selectDogru',
+        'deletePage' => 'deletePage',
     ];
 
     public function mount()
     {
         $this->sinav_id = request('id');
-        $this->sinav = SinavResim::find($this->sinav_id);
+        $this->sinav = KagitSinav::find($this->sinav_id);
         $this->getPages();
     }
 
     public function render()
     {
-        return view('livewire.sinav-resim-view', [
+        return view('livewire.kagit-sinav-view', [
             'sinav' => $this->sinav,
+            'kapsam' => KapsamSinav::all(),
         ]);
     }
 
     public function getPages()
     {
-        $this->sayfalar = Page::where('sinav_resim_id', '=', $this->sinav_id)
+        $this->sayfalar = Page::where('kagit_sinav_id', '=', $this->sinav_id)
             ->orderBy('sira', 'asc')
             ->get();
     }
@@ -114,7 +119,7 @@ class SinavResimView extends Component
         $this->sayfaSayisi = KapsamDal::find($id)->ssayisi;
 
         if ($this->active_page->kapsam_dal_id != $id) {
-            ResimSoru::where('page_id', $this->active_page_id)->delete();
+            KagitSoru::where('page_id', $this->active_page_id)->delete();
         }
 
         Page::find($this->active_page_id)->update($props);
@@ -130,11 +135,11 @@ class SinavResimView extends Component
                 'soruno' => $soruNo,
             ];
 
-            ResimSoru::create($props);
+            KagitSoru::create($props);
         }
 
         if ($islem == 'remove') {
-            ResimSoru::where('page_id', $this->active_page_id)
+            KagitSoru::where('page_id', $this->active_page_id)
                 ->where('soruno', $soruNo)
                 ->delete();
         }
@@ -148,10 +153,28 @@ class SinavResimView extends Component
             'dogrusecenek' => $harf,
         ];
 
-        ResimSoru::where('page_id', $this->active_page_id)
+        KagitSoru::where('page_id', $this->active_page_id)
             ->where('soruno', $soruNo)
             ->update($props);
 
         $this->active_page = Page::find($this->active_page_id);
+    }
+
+    public function deletePage($pageId)
+    {
+        KagitSoru::where('page_id', '=', $pageId)->delete();
+
+        Page::find($pageId)->delete();
+
+        $this->active_page_id = false;
+
+        $this->active_page = false;
+    }
+
+    public function editKapsam()
+    {
+        $this->isKapsamEdit
+            ? ($this->isKapsamEdit = false)
+            : ($this->isKapsamEdit = true);
     }
 }

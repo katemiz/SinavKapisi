@@ -11,39 +11,51 @@ class Soru extends Model
     use HasFactory;
 
     protected $guarded = [];
-
-    protected $table = 'sorular';
-
-    // protected $casts = [
-    //     'created_at' => 'datetime:Y-m-d',
-    // ];
-
-
+    protected $table = 'esorular';
 
     public function secenekler()
     {
-        return $this->hasMany(Secenek::class);
-    }
-
-
-
-
-    protected function ders(): Attribute
-    {
-        return new Attribute(
-            get: fn ($value, $attributes) => Kapsam::find(
-                $attributes['kapsam_id']
-            )->title,
-        );
+        return $this->hasMany(CevapSecenek::class);
     }
 
     protected function sinav(): Attribute
     {
         return new Attribute(
-            get: fn ($value, $attributes) => Kapsam::find(Kapsam::find(
-                $attributes['kapsam_id']
-            )->parent_id)->abbr,
+            get: fn ($value, $attributes) => KapsamSinav::find($attributes['kapsam_sinav_id'])->abbr,
         );
     }
+
+
+    protected function dal(): Attribute
+    {
+        return new Attribute(
+            get: fn ($value, $attributes) => $attributes['kapsam_dal_id'] != null ? KapsamDal::find($attributes['kapsam_dal_id'])->title : false,
+        );
+    }
+
+
+    protected function ders(): Attribute
+    {
+        return new Attribute(
+            get: fn ($value, $attributes) => $attributes['kapsam_ders_id'] != null ? KapsamDers::find($attributes['kapsam_ders_id'])->title:'',
+        );
+    }
+
+
+    protected function cevapSayisi(): Attribute
+    {
+        return new Attribute(
+            get: fn ($value, $attributes) => CevapSecenek::where('soru_id','=',$attributes['id'])->count(),
+        );
+    }
+
+    protected function dogruCevapSayisi(): Attribute
+    {
+        return new Attribute(
+            get: fn ($value, $attributes) => CevapSecenek::where('soru_id','=',$attributes['id'])->where('dogru_mu', true)->count(),
+        );
+    }
+
+
 
 }

@@ -12,16 +12,14 @@ class SoruList extends Component
     use WithPagination;
 
     public $notification = false;
-
     public $search = '';
-
     public $sortField = 'title';
     public $sortDirection = 'asc';
 
     public $sortTimeField = 'created_at';
     public $sortTimeDirection = 'desc';
 
-    public function deneme()
+    public function getSorular()
     {
         $q = Soru::query()->orderBy(
             $this->sortTimeField,
@@ -69,7 +67,7 @@ class SoruList extends Component
     public function render()
     {
         return view('livewire.soru-list', [
-            'sorular' => $this->deneme(),
+            'sorular' => $this->getSorular(),
         ]);
     }
 }

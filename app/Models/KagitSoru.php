@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ResimSoru extends Model
+class KagitSoru extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
-    protected $table = 'resimsorular';
+    protected $table = 'kagit_sorular';
 }

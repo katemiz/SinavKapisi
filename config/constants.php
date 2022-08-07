@@ -47,4 +47,6 @@ return [
         '8' => 'K',
         '9' => 'M',
     ],
+
+    'cevap_sik_sayisi' => 5,
 ];

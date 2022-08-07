@@ -19,7 +19,12 @@
             <input type="hidden" id="qid" value="{{$soru ? $soru->id : 0}}">
 
             <input type="hidden" id="selected_ders" name="selected_ders" value="{{$soru ? $soru->parent_id : 0}}">
-            <div class="columns">
+
+            <x-kapsam-select :kapsam="$sinavlar" />
+
+
+
+            {{-- <div class="columns">
 
                 <div class="column">
                     <div class="navbar-menu is-dark mb-6">
@@ -68,11 +73,11 @@
                     </nav>
 
                 </div>
-            </div>
+            </div> --}}
 
             <div class="field">
                 <input type="hidden" name="editor_data" id="ckeditor" value="{{$soru ? $soru->soru_background : $soru_onu}}">
-                <label class="label">Soru arka metin içeriği</label>
+                <label class="label">Soru arka metin içeriğiiii</label>
                 <div class="column" id="editor">{!!$soru ? $soru->soru_background: $soru_onu !!}</div>
             </div>
 

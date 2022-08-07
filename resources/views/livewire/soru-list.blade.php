@@ -1,8 +1,8 @@
 <div class="section container">
 
     <header class="my-6">
-        <h1 class="title has-text-weight-light is-size-1">Sorular</h1>
-        <h2 class="subtitle has-text-weight-light">Henüz Yayımlanmamış Sorular</h2>
+        <h1 class="title has-text-weight-light is-size-1">eSorular</h1>
+        <h2 class="subtitle has-text-weight-light">Hazırlanmakta Olan ve Yayınlanmış eSorular</h2>
     </header>
 
     {{-- NOTIFICATION --}}
@@ -10,7 +10,7 @@
         <div class="notification {{$notification["type"]}} is-light">{!! $notification["message"] !!}</div>
     @endif
 
-    <x-table-filter addcommand="Soru Ekle" addlink="/soru-add" showsearch="{{$sorular->total() > 0 ? true:false}}"/>
+    <x-table-filter addcommand="eSoru Ekle" addlink="/esoru-form" showsearch="{{$sorular->total() > 0 ? true:false}}"/>
 
     @if ($sorular->total() > 0)
 
@@ -23,7 +23,6 @@
 
             <thead>
                 <tr>
-
                     <th>Sınav</th>
                     <th>Ders</th>
 
@@ -35,11 +34,11 @@
                             <span class="icon {{ $sortDirection === 'desc' ? 'is-hidden' : ''}}">
                                 <x-icon icon="arrow-down" fill="{{config('constants.icons.color.active')}}"/>
                             </span>
-                            <span>Soru</span>
+                            <span>eSoru</span>
                         </span>
                     </th>
 
-                    <th class="is-2">
+                    <th>
                         <span class="icon-text" wire:click="sortBy('created_at')">
                             <span class="icon {{ $sortTimeDirection === 'asc' ? 'is-hidden' : ''}}">
                                 <x-icon icon="arrow-up" fill="{{config('constants.icons.color.active')}}"/>
@@ -51,6 +50,18 @@
                         </span>
                     </th>
 
+                    <th>
+                        <span class="icon-text" wire:click="sortBy('is_published')">
+                            <span class="icon {{ $sortTimeDirection === 'asc' ? 'is-hidden' : ''}}">
+                                <x-icon icon="arrow-up" fill="{{config('constants.icons.color.active')}}"/>
+                            </span>
+                            <span class="icon {{ $sortTimeDirection === 'desc' ? 'is-hidden' : ''}}">
+                                <x-icon icon="arrow-down" fill="{{config('constants.icons.color.active')}}"/>
+                            </span>
+                            <span>Durum</span>
+                        </span>
+                    </th>
+
                     <th class="has-text-right is-2">İşlemler</th>
                 </tr>
             </thead>
@@ -59,34 +70,25 @@
 
                 @foreach ($sorular as $soru)
 
-                <tr>
+                    <tr>
+                        <td>{{$soru->sinav}}</td>
+                        <td>{{ !blank($soru->ders) ? $soru->ders : $soru->dal}}</td>
+                        <td><a href="/soru-view/{{$soru->id}}">{!! $soru->soru !!}</a></td>
+                        <td>{{ $soru->created_at }}</td>
+                        <td>{{ $soru->is_published ? 'Yayınlanmış':'Çalışılıyor' }}</td>
 
-                    <td>{{$soru->sinav}}</td>
-                    <td>{{$soru->ders}}</td>
+                        <td class="has-text-right">
+                            <a href="/esoru/{{$soru->id}}" class="icon">
+                                <x-icon icon="eye" fill="{{config('constants.icons.color.active')}}"/>
+                            </a>
 
-
-                    <td>
-                        <a href="/soru-view/{{$soru->id}}">
-                            {!! $soru->soru !!}
-                        </a>
-                    </td>
-
-                    <td>
-                        {{ $soru->created_at }}
-                    </td>
-
-
-
-                    <td class="has-text-right">
-                    <a href="/soru-view/{{$soru->id}}" class="icon">
-                        <x-icon icon="eye" fill="{{config('constants.icons.color.active')}}"/>
-
-                    </a>
-                    <a href="/soru-edit/{{$soru->id}}}" class="icon">
-                        <x-icon icon="edit" fill="{{config('constants.icons.color.active')}}"/>
-                    </a>
-                    </td>
-                </tr>
+                            @if (!$soru->is_published)
+                            <a href="/esoru-form/{{$soru->id}}" class="icon">
+                                <x-icon icon="edit" fill="{{config('constants.icons.color.active')}}"/>
+                            </a>
+                            @endif
+                        </td>
+                    </tr>
 
                 @endforeach
 
@@ -97,7 +99,7 @@
         {{ $sorular->links()}}
 
     @else
-        <div class="notification is-warning is-light">Yönettiğiniz bina bulunmamaktadır.</div>
+        <div class="notification is-warning is-light">eSoru bulunmamaktadır.</div>
     @endif
 
 </div>

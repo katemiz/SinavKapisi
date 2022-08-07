@@ -134,60 +134,9 @@
             <h1 class="subtitle has-text-weight-light">{{$sinav->sinav}}  {{$sinav->dal}} {{$sinav->ders}}</h1>
 
             @else
-            <label class="label my-5">Sınav Türünü Seçiniz</label>
 
-            <div class="columns">
+            <x-kapsam-select :kapsam="$kapsam" item="{{false}}"/>
 
-                @foreach ($kapsam as $sinav)
-
-                    <div class="column field">
-
-                        <div class="control">
-                            <label class="radio">
-                                <input type="radio" name="sinavturu" value="{{ $sinav->id }}" > {{ $sinav->title }}
-                            </label>
-                            <br>
-                        </div>
-
-                        @if ($sinav->dallar->count())
-                            <div class="column ml-4">
-                            @foreach ($sinav->dallar as $dal)
-
-                                <div class="control" id="evsahibi">
-                                    <label class="radio">
-                                        <input type="radio" name="sinavturu" value="{{ $sinav->id }}:{{ $dal->id }}" > {{ $dal->title }}
-                                    </label>
-                                </div>
-
-                                @if ($dal->dersler->count())
-
-                                <div class="column ml-4">
-
-                                    @foreach ($dal->dersler as $ders)
-
-                                    <div class="control" id="evsahibi">
-                                        <label class="radio">
-                                            <input type="radio" name="sinavturu" value="{{ $sinav->id }}:{{ $dal->id }}:{{ $ders->id }}" > {{ $ders->title }}
-                                        </label>
-                                    </div>
-
-                                    @endforeach
-
-                                </div>
-
-                                @endif
-
-                            @endforeach
-                            </div>
-                        @endif
-
-
-
-
-                    </div>
-
-                @endforeach
-            </div>
             @endif
 
             <div class="column box mt-6">
@@ -255,7 +204,6 @@
             </div>
 
         </form>
-
 
     </div>
 

@@ -3,12 +3,12 @@
 
     <script src="{{ asset('/js/ckeditor5/ckeditor.js') }}"></script>
 
-    <h1 class="title mb-6 has-text-weight-light is-size-1">Soru Güncelle</h1>
+    <h1 class="title mb-6 has-text-weight-light is-size-1">eSoru Güncelle</h1>
 
     <form action="/soru-update/{{$soru->id}}" method="POST" enctype="multipart/form-data">
         @csrf
 
-        <input type="hidden" id="sders" name="sders" value="{{$soru->kapsam_id}}" />
+        {{-- <input type="hidden" id="sders" name="sders" value="{{$soru->kapsam_id}}" />
 
         <div class="columns">
 
@@ -59,7 +59,79 @@
                 </nav>
 
             </div>
-        </div>
+        </div> --}}
+
+
+
+
+        {{-- <label class="label my-5">İlgili Sınav/Dersi Seçiniz</label>
+
+        <div class="columns">
+            @foreach ($kapsam as $sinav)
+
+                <div class="column field">
+
+                    <div class="control">
+                        <label class="radio">
+                            <input type="radio" name="kapsamturu" value="{{ $sinav->id }}" {{ blank($soru->kapsam_ders_id) && blank($soru->kapsam_dal_id && $soru->kapsam_sinav_id == $sinav->id) ? 'checked':'' }}> {{ $sinav->title }}
+                        </label>
+                        <br>
+                    </div>
+
+                    @if ($sinav->dallar->count())
+                        <div class="column ml-4">
+                        @foreach ($sinav->dallar as $dal)
+
+                            <div class="control" id="evsahibi">
+                                <label class="radio">
+                                    <input type="radio" name="kapsamturu" value="{{ $sinav->id }}:{{ $dal->id }}" {{blank($soru->kapsam_ders_id) && !blank($soru->kapsam_dal_id) && $soru->kapsam_dal_id == $dal->id ? 'checked':''}}> {{ $dal->title }}
+                                </label>
+                            </div>
+
+                            @if ($dal->dersler->count())
+
+                            <div class="column ml-4">
+
+                                @foreach ($dal->dersler as $ders)
+
+                                <div class="control" id="evsahibi">
+                                    <label class="radio">
+                                        <input type="radio" name="kapsamturu" value="{{ $sinav->id }}:{{ $dal->id }}:{{ $ders->id }}" {{!blank($soru->kapsam_ders_id) && $soru->kapsam_ders_id == $ders->id}}> {{ $ders->title }}
+                                    </label>
+                                </div>
+
+                                @endforeach
+
+                            </div>
+
+                            @endif
+
+                        @endforeach
+                        </div>
+                    @endif
+
+                </div>
+
+            @endforeach
+        </div> --}}
+
+
+
+
+
+        <x-kapsam-select :kapsam="$kapsam" :item="$soru"/>
+
+
+
+
+
+
+
+
+
+
+
+
 
         <div class="field">
             <input type="hidden" name="editor_data1" id="ckeditor1" value="{{$soru->soru_background}}">
@@ -74,7 +146,7 @@
         </div>
 
         <div class="column has-text-right">
-            <button type="submit" class="button is-link is-light">Kaydet</button>
+            <button type="submit" class="button is-link is-light">Güncelle</button>
         </div>
 
     </form>

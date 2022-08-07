@@ -26,7 +26,7 @@
 
         <footer class="modal-card-foot">
             <button class="button is-success" type="submit">{{$secenek ? 'Güncelle':'Şık Ekle'}}</button>
-            <a class="button"  href="/soru-view/{{$soru->id}}">Vazgeç</a>
+            <a class="button"  href="/esoru/{{$soru->id}}">Vazgeç</a>
         </footer>
 
     </form>

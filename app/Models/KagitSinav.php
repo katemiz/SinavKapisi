@@ -6,13 +6,13 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SinavResim extends Model
+class KagitSinav extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
 
-    protected $table = 'sinav_resim';
+    protected $table = 'kagit_sinavlar';
 
     public function sayfalar()
     {
@@ -36,6 +36,18 @@ class SinavResim extends Model
             get: fn ($value, $attributes) => KapsamSinav::find($attributes['kapsam_sinav_id'])->title,
         );
     }
+
+
+
+    protected function sinavabbr(): Attribute
+    {
+        return new Attribute(
+
+            get: fn ($value, $attributes) => KapsamSinav::find($attributes['kapsam_sinav_id'])->abbr,
+        );
+    }
+
+
 
     protected function dal(): Attribute
     {

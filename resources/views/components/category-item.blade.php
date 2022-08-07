@@ -3,19 +3,21 @@
     <div class="column my-0">
 
         @if (isset($category['children']) && is_array($category['children']))
-            <a class="icon" onclick="toggleShow({{$category['id']}})">
+            <a class="icon-text" onclick="toggleShow({{$category['id']}})">
                 <span class="icon" id="iconright{{$category['id']}}">
                     <x-icon icon="arrow-right" fill="{{config('constants.icons.color.active')}}"/>
                 </span>
                 <span class="icon is-hidden" id="icondown{{$category['id']}}">
                     <x-icon icon="arrow-down" class="is-hidden" fill="{{config('constants.icons.color.active')}}"/>
                 </span>
+                <span class="text">{{$category['title']}}</span>
             </a>
         @else
-            <x-icon icon="tree-dot" fill="{{config('constants.icons.color.inactive')}}"/>
+            <span class="icon-text">
+                <x-icon icon="tree-dot" fill="{{config('constants.icons.color.inactive')}}"/>
+                <span class="text">{{$category['title']}}</span>
+            </span>
         @endif
-
-        <span class="text">{{$category['title']}}</span>
 
     </div>
 

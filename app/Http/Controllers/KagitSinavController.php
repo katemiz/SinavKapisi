@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\KagitSinav;
 use App\Models\KapsamSinav;
 use App\Models\Page;
-use App\Models\SinavResim;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
-class SinavResimController extends Controller
+class KagitSinavController extends Controller
 {
     public function form(Request $req)
     {
@@ -17,10 +17,10 @@ class SinavResimController extends Controller
         $a = KapsamSinav::all();
 
         if (!blank(request('id'))) {
-            $sinav = SinavResim::find(request('id'));
+            $sinav = KagitSinav::find(request('id'));
         }
 
-        return view('sinav-ekle-resim', [
+        return view('kagit-sinav-ekle', [
             'kapsam' => $a,
             'sinav' => $sinav,
         ]);
@@ -47,15 +47,15 @@ class SinavResimController extends Controller
                 $sinavresim['kapsam_ders_id'] = null;
             }
 
-            $new_sinav = SinavResim::create($sinavresim);
+            $new_sinav = KagitSinav::create($sinavresim);
 
             $this->addFiles($req, $new_sinav->id);
-            return redirect()->route('sinavresimview', [
+            return redirect()->route('viewkagitsinav', [
                 'id' => $new_sinav->id,
             ]);
         } else {
             $this->addFiles($req, request('id'));
-            return redirect()->route('sinavresimview', ['id' => request('id')]);
+            return redirect()->route('viewkagitsinav', ['id' => request('id')]);
         }
     }
 
@@ -82,7 +82,7 @@ class SinavResimController extends Controller
     public function saveRecord($dosya, $id, $saved_dir, $sira)
     {
         $dosya_data = [
-            'sinav_resim_id' => $id,
+            'kagit_sinav_id' => $id,
             'user_id' => Auth::id(),
             'sira' => $sira,
             'filename' => $dosya->getClientOriginalName(),

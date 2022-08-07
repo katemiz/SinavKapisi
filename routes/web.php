@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\SinavResimController;
+use App\Http\Controllers\KagitSinavController;
 use App\Http\Controllers\SoruController;
 use App\Http\Livewire\GunlukSoru;
 use App\Http\Livewire\Harun;
-use App\Http\Livewire\SinavResimView;
+use App\Http\Livewire\KagitSinavlar;
+use App\Http\Livewire\KagitSinavView;
 use App\Http\Livewire\SoruList;
 use App\Http\Livewire\Tree;
 use App\Http\Livewire\Yeni;
@@ -44,16 +45,21 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/soru-list', SoruList::class);
     Route::get('/soru/{action}/{id}', Yeni::class);
 
-    Route::get('/soru-add', [SoruController::class, 'add']);
-    Route::get('/soru-edit/{id}', [SoruController::class, 'add']);
-    Route::post('/soru-insert', [SoruController::class, 'insert']);
-    Route::post('/soru-update/{id}', [SoruController::class, 'update']);
-
-    Route::get('/soru-view/{id}', [SoruController::class, 'view'])->name(
+    Route::get('/esoru/{id}', [SoruController::class, 'view'])->name(
         'soruview'
     );
+    Route::get('/esoru-form/{id?}', [SoruController::class, 'form']);
+    Route::post('/soru-insert', [SoruController::class, 'insert']);
+    Route::post('/soru-update/{id}', [SoruController::class, 'update']);
+    Route::get('/esoru-publish/{id}', [SoruController::class, 'publish']);
 
-    Route::get('/secenek-form/{id}/{secId}', [
+    // Route::get('/item/form/{id?}', [ItemController::class, 'form']);
+    // Route::post('/item/c/{id?}', [ItemController::class, 'crud-c']);
+    // Route::get('/item/r/{id?}', [ItemController::class, 'crud-c']);
+    // Route::post('/item/u/{id}', [ItemController::class, 'crud-u']);
+    // Route::post('/item/d/{id}', [ItemController::class, 'crud-d']);
+
+    Route::get('/esoru/secenek-form/{id}/{secId?}', [
         SoruController::class,
         'secenekForm',
     ]);
@@ -69,15 +75,17 @@ Route::middleware(['auth'])->group(function () {
     ]);
 
     Route::get('/gunluk-soru/{tur}', GunlukSoru::class);
-    Route::get('/sinav-ekle/{id?}', [SinavResimController::class, 'form']);
+    Route::get('/kagit-sinav/{id?}', [KagitSinavController::class, 'form']);
     Route::post('sinav-storefiles/{id?}', [
-        SinavResimController::class,
+        KagitSinavController::class,
         'storefiles',
     ]);
 
-    Route::get('/sinav-resim-view/{id}', SinavResimView::class)->name(
-        'sinavresimview'
+    Route::get('/kagit-sinav-view/{id}', KagitSinavView::class)->name(
+        'viewkagitsinav'
     );
+
+    Route::get('/kagit-sinavlar', KagitSinavlar::class);
 
     Route::get('/harun', Harun::class);
 

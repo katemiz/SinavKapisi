@@ -14,7 +14,7 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('secenekler', function (Blueprint $table) {
+        Schema::create('ecevap_secenekler', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class);
             $table->foreignIdFor(Soru::class);
@@ -31,6 +31,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('secenekler');
+        Schema::dropIfExists('ecevap_secenekler');
     }
 };

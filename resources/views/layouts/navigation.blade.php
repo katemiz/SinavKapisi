@@ -18,33 +18,34 @@
 
       <div class="navbar-start has-text-white" id="navstart">
 
-        <a href="/kapsam" class="navbar-item">
-            Konular
-        </a>
-
-        <a href="/soru-add" class="navbar-item">
-            eSoru Ekle
-        </a>
-
-        <a href="/soru-list" class="navbar-item">
-            eSorular
-        </a>
+        <a href="/kapsam" class="navbar-item">Konular</a>
 
         @if(Auth::check())
 
-           <a href="/sinav-ekle" class="navbar-item">
-                Kağıt Sınav
-            </a>
+            <div class="navbar-item has-dropdown is-hoverable">
+                <p class="navbar-link">eSoru</p>
+                <div class="navbar-dropdown">
+                    <a href="/esoru-form" class="navbar-item">eSoru Ekle</a>
+                    <a href="/soru-list" class="navbar-item">eSorular</a>
+                </div>
+            </div>
 
-            <a href="/list-records/asset" class="navbar-item">
-                Login Action 2
-            </a>
+            <div class="navbar-item has-dropdown is-hoverable">
+                <p class="navbar-link">Kağıt Sınav</p>
+                <div class="navbar-dropdown">
+                    <a href="/kagit-sinavlar" class="navbar-item">Kağıt Sınavlar</a>
+                    <a href="/kagit-sinav" class="navbar-item">Kağıt Sınav Ekle</a>
+                </div>
+            </div>
 
-            <a href="/chartisan" class="navbar-item">
-                Chartisan
-            </a>
+            <div class="navbar-item has-dropdown is-hoverable">
+                <p class="navbar-link">Harun</p>
+                <div class="navbar-dropdown">
+                    <a href="/chartisan" class="navbar-item">Chartisan</a>
+                </div>
+            </div>
 
-          @endif
+        @endif
 
       </div>
 
@@ -56,9 +57,7 @@
               @if(Auth::check())
 
                 <div class="navbar-item has-dropdown is-hoverable">
-                    <p class="navbar-link">
-                        {{ Auth::user()->name }}
-                    </p>
+                    <p class="navbar-link">{{ Auth::user()->name }}</p>
 
                     <div class="navbar-dropdown">
 
