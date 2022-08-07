@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\KagitSinavController;
 use App\Http\Controllers\SoruController;
+use App\Http\Livewire\Eexam;
 use App\Http\Livewire\GunlukSoru;
 use App\Http\Livewire\Harun;
 use App\Http\Livewire\KagitSinavlar;
@@ -92,4 +93,7 @@ Route::middleware(['auth'])->group(function () {
     // Route::get('/harun', function () {
     //     return view('chartisan', ['name' => 'James']);
     // });
+
+    // E-EXAM
+    Route::get('/e-exm/{eid}/{id}', Eexam::class);
 });

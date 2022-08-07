@@ -13,7 +13,7 @@
         <nav class="level">
             <!-- Left side -->
             <div class="level-left">
-                <h1 class="soru_no">S{{$soru->id}} - {{$soru->sinav}} {{$soru->ders}}</h1>
+                <h1 class="soru_no">S{{$soru->id}} - {{$soru->sinav}} {{blank($soru->ders) ? $soru->dal : $soru->ders}}</h1>
             </div>
 
             @if (!$soru->is_published)
@@ -30,8 +30,8 @@
             @endif
         </nav>
 
-        <div class="column content py-4 my-4 is-size-5">{!! $soru->soru_background !!}</div>
-        <div class="column content box has-background-light py-4 my-4 is-size-4">{!! $soru->soru !!}</div>
+        <div class="column content py-4 my-4 is-size-5 is-size-6-mobile">{!! $soru->soru_background !!}</div>
+        <div class="column content box has-background-light py-4 my-4 is-size-4 is-size-6-mobile">{!! $soru->soru !!}</div>
 
         @if (!$soru->is_published)
         <div class="column my-3">
