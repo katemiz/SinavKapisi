@@ -13,7 +13,8 @@ class SoruList extends Component
 
     public $notification = false;
     public $search = '';
-    public $sortField = 'title';
+
+    public $sortField = 'kapsam_sinav_id';
     public $sortDirection = 'asc';
 
     public $sortTimeField = 'created_at';
@@ -21,15 +22,13 @@ class SoruList extends Component
 
     public function getSorular()
     {
-        $q = Soru::query()->orderBy(
-            $this->sortTimeField,
-            $this->sortTimeDirection
-        );
-
-        // $q->where('user_id', '=', Auth::id());
+        $q = Soru::query()
+            ->orderBy($this->sortField, $this->sortDirection)
+            ->orderBy($this->sortTimeField, $this->sortTimeDirection);
 
         if (strlen($this->search) > 0) {
-            $q->where('name', 'like', '%' . $this->search . '%');
+            $q->where('soru', 'like', '%' . $this->search . '%');
+            $q->orWhere('soru_background', 'like', '%' . $this->search . '%');
         }
 
         return $q->paginate(Config::get('constants.table.no_of_results'));
@@ -42,6 +41,8 @@ class SoruList extends Component
 
     public function sortBy($field)
     {
+        $this->sortField = $field;
+
         if ($this->sortField === $field) {
             $this->sortDirection =
                 $this->sortDirection === 'asc' ? 'desc' : 'asc';

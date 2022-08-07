@@ -9,13 +9,6 @@
 
                 <span class="tag is-dark">{{ $sinav->title }}</span>
 
-                {{-- <div class="control">
-                    <label class="radio">
-                        <input type="radio" name="kapsamturu" value="{{ $sinav->id }}" {{ $item && blank($item->kapsam_dal_id) && blank($item->kapsam_ders_id) && $kapsam_sinav_id == $sinav->id ? 'checked' :''}}> {{ $sinav->title }}
-                    </label>
-                    <br>
-                </div> --}}
-
                 @if ($sinav->dallar->count())
                     <div class="column ml-4">
                         @foreach ($sinav->dallar as $dal)

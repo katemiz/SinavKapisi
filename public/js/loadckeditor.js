@@ -1,6 +1,14 @@
 function loadEditor(no, placeholder) {
   ClassicEditor.create(document.querySelector('#editor' + no), {
     placeholder: placeholder,
+
+    list: {
+      properties: {
+        styles: true,
+        startIndex: false,
+        reversed: false,
+      },
+    },
   })
     .then((editor) => {
       let icerik = document.getElementById('ckeditor' + no).value

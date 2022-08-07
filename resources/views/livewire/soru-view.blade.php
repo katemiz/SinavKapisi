@@ -23,15 +23,15 @@
                     <x-icon icon="publish" fill="{{config('constants.icons.color.active')}}"/>
                 </a>
 
-                <a href="/esoru/form/{{$soru->id}}" class="icon" data-toggle="tooltip" title='Soru İçeriği Değiştir'>
+                <a href="/esoru-form/{{$soru->id}}" class="icon" data-toggle="tooltip" title='Soru İçeriği Değiştir'>
                     <x-icon icon="edit" fill="{{config('constants.icons.color.active')}}"/>
                 </a>
             </div>
             @endif
         </nav>
 
-        <div class="column box has-background-light py-4 my-4 is-size-4">{!! $soru->soru_background !!}</div>
-        <div class="column box has-background-light py-4 my-4 is-size-4">{!! $soru->soru !!}</div>
+        <div class="column content py-4 my-4 is-size-5">{!! $soru->soru_background !!}</div>
+        <div class="column content box has-background-light py-4 my-4 is-size-4">{!! $soru->soru !!}</div>
 
         @if (!$soru->is_published)
         <div class="column my-3">

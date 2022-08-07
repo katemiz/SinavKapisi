@@ -133,13 +133,13 @@
 
 
 
-        <div class="field">
+        <div class="field content">
             <input type="hidden" name="editor_data1" id="ckeditor1" value="{{$soru->soru_background}}">
             <label class="label">Soru arka metin içeriği</label>
             <div class="column" id="editor1">{{$soru->soru_background}}</div>
         </div>
 
-        <div class="field">
+        <div class="field content">
             <input type="hidden" name="editor_data2" id="ckeditor2" value="{{$soru->soru}}">
             <label class="label">Soru metni</label>
             <div class="column" id="editor2">{{$soru->soru}}</div>

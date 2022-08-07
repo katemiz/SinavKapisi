@@ -23,11 +23,32 @@
 
             <thead>
                 <tr>
-                    <th>Sınav</th>
-                    <th>Ders</th>
+                    <th>
+                        <span class="icon-text" wire:click="sortBy('kapsam_sinav_id')">
+                            <span class="icon {{ $sortDirection === 'asc' ? 'is-hidden' : ''}}">
+                                <x-icon icon="arrow-up" fill="{{config('constants.icons.color.active')}}"/>
+                            </span>
+                            <span class="icon {{ $sortDirection === 'desc' ? 'is-hidden' : ''}}">
+                                <x-icon icon="arrow-down" fill="{{config('constants.icons.color.active')}}"/>
+                            </span>
+                            <span>Sınav</span>
+                        </span>
+                    </th>
 
                     <th>
-                        <span class="icon-text" wire:click="sortBy('title')">
+                        <span class="icon-text" wire:click="sortBy('kapsam_sinav_id')">
+                            <span class="icon {{ $sortDirection === 'asc' ? 'is-hidden' : ''}}">
+                                <x-icon icon="arrow-up" fill="{{config('constants.icons.color.active')}}"/>
+                            </span>
+                            <span class="icon {{ $sortDirection === 'desc' ? 'is-hidden' : ''}}">
+                                <x-icon icon="arrow-down" fill="{{config('constants.icons.color.active')}}"/>
+                            </span>
+                            <span>Konu</span>
+                        </span>
+                    </th>
+
+                    <th>
+                        <span class="icon-text" wire:click="sortBy('soru')">
                             <span class="icon {{ $sortDirection === 'asc' ? 'is-hidden' : ''}}">
                                 <x-icon icon="arrow-up" fill="{{config('constants.icons.color.active')}}"/>
                             </span>
