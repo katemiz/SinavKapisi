@@ -41,7 +41,7 @@
             <div class="navbar-item has-dropdown is-hoverable">
                 <p class="navbar-link">Harun</p>
                 <div class="navbar-dropdown">
-                    <a href="/chartisan" class="navbar-item">Chartisan</a>
+                    <a href="/harun" class="navbar-item">Chartisan</a>
                 </div>
             </div>
 

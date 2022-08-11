@@ -6,20 +6,25 @@ use App\Models\KagitSinav;
 use App\Models\KapsamDal;
 use App\Models\Page;
 use App\Models\KagitSoru;
+use App\Models\KapsamDers;
 use App\Models\KapsamSinav;
-use App\Models\SinavResim;
+use Illuminate\Support\Arr;
 use Livewire\Component;
 
 class KagitSinavView extends Component
 {
     public $sinav_id = false;
-    public $sinav = false;
-    public $sayfalar = false;
+    public $sinav;
+    public $sayfalar = [];
     public $active_page_id = false;
-    public $active_page = false;
+    public $active_page;
     public $active_page_data = false;
+    public $active_dal_id = false;
     public $sayfaSayisi = false;
     public $isKapsamEdit = false;
+    public $is_publishable = false;
+    public $publish_errors = [];
+    public $soru_durum_dizini;
 
     protected $listeners = [
         'selectDal' => 'selectDal',
@@ -62,12 +67,17 @@ class KagitSinavView extends Component
             $this->sayfaSayisi = KapsamDal::find(
                 $this->active_page->kapsam_dal_id
             )->ssayisi;
+
+            $this->active_dal_id = $this->active_page->kapsam_dal_id;
+        } else {
+            $this->active_dal_id = false;
         }
     }
 
     public function changePage($pageId)
     {
         $this->active_page_id = $pageId;
+
         $this->getActivePage();
         $this->getPages();
     }
@@ -76,7 +86,7 @@ class KagitSinavView extends Component
     {
         $selPage = Page::find($pageId);
 
-        $nextPage = Page::where('sinav_resim_id', '=', $this->sinav_id)
+        $nextPage = Page::where('kagit_sinav_id', '=', $this->sinav_id)
             ->where('sira', $selPage->sira + 1)
             ->first();
 
@@ -95,7 +105,7 @@ class KagitSinavView extends Component
     {
         $selPage = Page::find($pageId);
 
-        $prevPage = Page::where('sinav_resim_id', '=', $this->sinav_id)
+        $prevPage = Page::where('kagit_sinav_id', '=', $this->sinav_id)
             ->where('sira', $selPage->sira - 1)
             ->first();
 
@@ -124,7 +134,7 @@ class KagitSinavView extends Component
 
         Page::find($this->active_page_id)->update($props);
 
-        $this->active_page = Page::find($this->active_page_id);
+        $this->getActivePage();
     }
 
     public function soruSayfaRelation($islem, $soruNo)
@@ -169,6 +179,8 @@ class KagitSinavView extends Component
         $this->active_page_id = false;
 
         $this->active_page = false;
+
+        $this->getPages();
     }
 
     public function editKapsam()
@@ -176,5 +188,109 @@ class KagitSinavView extends Component
         $this->isKapsamEdit
             ? ($this->isKapsamEdit = false)
             : ($this->isKapsamEdit = true);
+    }
+
+    public function sinavPublish()
+    {
+        $this->publish_errors = [];
+
+        // Tüm soruların karşılığı var mı?
+        $this->soruIsaretlemeDurumu();
+
+        foreach ($this->soru_durum_dizini as $d => $value) {
+            if ($value) {
+                foreach ($value as $key => $v) {
+                    if ($d == 'dallar') {
+                        $abbr = KapsamDal::find($key)->abbr;
+                    }
+
+                    if ($d == 'dersler') {
+                        $abbr = KapsamDers::find($key)->abbr;
+                    }
+
+                    $filtered[$abbr] = Arr::where($v, function ($value, $key) {
+                        return is_null($value);
+                    });
+
+                    if (count($filtered[$abbr]) == 0) {
+                        unset($filtered[$abbr]);
+                    }
+                }
+            }
+        }
+
+        $this->publish_errors['eksik_sorular'] = $filtered;
+
+        // dd(['a' => $this->soru_durum_dizini, 'b' => $filtered]);
+
+        foreach ($this->sayfalar as $key => $page) {
+            if (
+                $page->kapsam_dal_id === null &&
+                $page->kapsam_ders_id === null
+            ) {
+                $this->publish_errors[] =
+                    $page->sira .
+                    ' numaralı sayfanın içeriği ve soruları seçilmemiş';
+            }
+
+            $sayfa_sorulari = KagitSoru::where(
+                'page_id',
+                '=',
+                $page->id
+            )->get();
+
+            if (count($sayfa_sorulari) < 1) {
+                $this->publish_errors[] =
+                    'Sayfa ' . $page->sira . ' için HİÇ soru eklenmemiştir';
+            }
+
+            // SEÇİLİ SORULARIN DOĞRU ŞIKLARI İŞARETLENMİŞ Mİ?
+            foreach ($sayfa_sorulari as $ksoru) {
+                if ($ksoru->dogrusecenek === null) {
+                    $this->publish_errors[] =
+                        'Sayfa ' .
+                        $page->sira .
+                        ' Soru ' .
+                        $ksoru->soruno .
+                        '`nın DOĞRU ŞIK işaretlenmemiş';
+                }
+            }
+        }
+
+        if (count($this->publish_errors) == 0) {
+            $this->is_publishable = true;
+        }
+
+        // dd($this->publish_errors);
+    }
+
+    public function soruIsaretlemeDurumu()
+    {
+        $this->soru_durum_dizini = $this->sinav->soruDizini();
+
+        foreach ($this->sayfalar as $page) {
+            $sayfa_sorulari = KagitSoru::where(
+                'page_id',
+                '=',
+                $page->id
+            )->get();
+
+            // İŞARETLENMİŞ SORULAR
+            foreach ($sayfa_sorulari as $ksoru) {
+                if ($page->kapsam_dal_id && $page->tum_sorular === null) {
+                    $this->soru_durum_dizini['dallar'][$page->kapsam_dal_id][
+                        $ksoru->soruno
+                    ] = 'done';
+                }
+
+                if ($page->tum_sorular !== null) {
+                    $this->soru_durum_dizini['dersler'][$page->kapsam_ders_id][
+                        $ksoru->soruno
+                    ] = 'done';
+                }
+            }
+        }
+
+        return true;
     }
 }

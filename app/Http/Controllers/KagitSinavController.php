@@ -31,7 +31,7 @@ class KagitSinavController extends Controller
         if (blank(request('id'))) {
             $sinavresim['user_id'] = Auth::id();
 
-            $sinav_dal_ders_arr = explode(':', $req->input('sinavturu'));
+            $sinav_dal_ders_arr = explode(':', $req->input('kapsamturu'));
 
             $sinavresim['kapsam_sinav_id'] = $sinav_dal_ders_arr['0'];
 
@@ -49,20 +49,26 @@ class KagitSinavController extends Controller
 
             $new_sinav = KagitSinav::create($sinavresim);
 
-            $this->addFiles($req, $new_sinav->id);
+            $lastpageno = 0;
+
+            $this->addFiles($req, $new_sinav->id, $lastpageno);
             return redirect()->route('viewkagitsinav', [
                 'id' => $new_sinav->id,
             ]);
         } else {
-            $this->addFiles($req, request('id'));
+            $lastpageno = Page::where('kagit_sinav_id', request('id'))->max(
+                'sira'
+            );
+
+            $this->addFiles($req, request('id'), $lastpageno);
             return redirect()->route('viewkagitsinav', ['id' => request('id')]);
         }
     }
 
-    public function addFiles($req, $id)
+    public function addFiles($req, $id, $lastpageno)
     {
         if ($req->has('assets')) {
-            $sira = 1;
+            $sira = ++$lastpageno;
 
             foreach ($req->file('assets') as $dosya) {
                 if (strlen($dosya->getMimeType()) > 32) {

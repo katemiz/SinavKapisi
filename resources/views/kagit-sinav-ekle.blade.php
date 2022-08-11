@@ -135,7 +135,8 @@
 
             @else
 
-            <x-kapsam-select :kapsam="$kapsam" item="{{false}}"/>
+            <x-kapsam-select :kapsam="$kapsam" :sinav="$sinav" is_sinav_selectable="1"/>
+
 
             @endif
 

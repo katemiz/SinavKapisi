@@ -78,4 +78,77 @@ class KagitSinav extends Model
     }
 
 
+    public function sinavSoruSayisi()
+    {
+        $sonuc = [
+            'dallar' => false,
+            'dersler' => false
+        ];
+
+        if ($this->kapsam_dal_id === null && $this->kapsam_ders_id === null)
+        {
+            $dallar = KapsamDal::where('kapsam_sinav_id','=',$this->kapsam_sinav_id)->get();
+
+            foreach ($dallar as $dal) {
+                $sonuc['dallar'][$dal->id] = $dal->ssayisi;
+            }
+        }
+
+        if ($this->kapsam_dal_id != null && $this->kapsam_ders_id === null)
+        {
+            $dal = KapsamDal::find($this->kapsam_dal_id);
+
+            $sonuc['dallar'][$dal->id] = $dal->ssayisi;
+            $dersler = KapsamDers::where('kapsam_dal_id','=',$dal->id)->get();
+
+            foreach ($dersler as $ders) {
+                $sonuc['dersler'][$ders->id] = $ders->ssayisi;
+            }
+        }
+
+        if ($this->kapsam_dal_id != null && $this->kapsam_ders_id != null)
+        {
+            $ders = KapsamDers::find($this->kapsam_ders_id);
+            $sonuc['dersler'][$ders->id] = $ders->ssayisi;
+        }
+
+        return $sonuc;
+    }
+
+
+    public function soruDizini()
+    {
+        $tum_sorular = [];
+
+        $sinavSayiDizini = $this->sinavSoruSayisi();
+
+        foreach ($sinavSayiDizini as $k => $valueArr) {
+
+            if ($valueArr) {
+
+                foreach ($valueArr as $kk => $ssayisi) {
+                    $temp = [];
+
+                    for ($i = 1; $i <= $ssayisi; $i++) {
+                        $temp[$i] = null;
+                    }
+                    $tum_sorular[$k][$kk] = $temp;
+                }
+
+            } else {
+                $tum_sorular[$k] = false;
+            }
+        }
+
+        return $tum_sorular;
+    }
+
+
+
+
 }
+
+
+
+
+

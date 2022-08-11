@@ -1,11 +1,11 @@
-<section class="section container" >
+<div class="column" >
 
     <h1 class="title my-6 has-text-weight-light is-size-1 has-text-centered">Harun Durum</h1>
     <h1 class="subtitle has-text-centered">TYT</h1>
 
     <div id="chart" style="height: 600px;"></div>
 
-    <div><pre> {{$chart}} </pre></div>
+    {{-- <div><pre> {{$chart}} </pre></div> --}}
 
     <!-- Charting library -->
     <script src="https://unpkg.com/chart.js@2.9.3/dist/Chart.min.js"></script>
@@ -15,9 +15,11 @@
     <script>
       const chart = new Chartisan({
         el: '#chart',
-        url: "/js/chartisan.json",
+        // url: "/js/chartisan.json",
         // You can also pass the data manually instead of the url:
         // data: { ... }
+
+        data: {!! $chart !!},
 
     //     data:@php
     //    echo $chart
@@ -32,6 +34,9 @@
             .datasets([{ type: 'line', fill: false }, { type: 'line', fill: false }, { type: 'line', fill: true }, { type: 'line', fill: true }, { type: 'line', fill: true }]),
       })
 
+
+      console.log({!! $chart !!})
+
     </script>
 
-</section>
+</div>

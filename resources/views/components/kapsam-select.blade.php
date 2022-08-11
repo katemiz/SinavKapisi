@@ -3,19 +3,29 @@
 
     <div class="columns">
 
-        @foreach ($kapsam as $sinav)
+        @foreach ($kapsam as $exm)
 
             <div class="column field">
 
-                <span class="tag is-dark">{{ $sinav->title }}</span>
+                @if (isset($attributes['is_sinav_selectable']) && $attributes['is_sinav_selectable'])
+                    <div class="control">
+                        <label class="radio">
+                            <input type="radio" name="kapsamturu" value="{{ $exm->id }}" {{ $sinav && blank($sinav->kapsam_dal_id) && blank($sinav->kapsam_ders_id) && $sinav->kapsam_sinav_id == $exm->id ? 'checked' :''}}> {{ $exm->title }}
+                        </label>
+                        <br>
+                    </div>
+                @else
+                    <span class="tag is-dark">{{ $exm->title }}</span>
+                @endif
 
-                @if ($sinav->dallar->count())
+
+                @if ($exm->dallar->count())
                     <div class="column ml-4">
-                        @foreach ($sinav->dallar as $dal)
+                        @foreach ($exm->dallar as $dal)
 
                             <div class="control">
                                 <label class="radio">
-                                    <input type="radio" name="kapsamturu" value="{{ $sinav->id }}:{{ $dal->id }}" {{ $item && blank($item->kapsam_ders_id) && $item->kapsam_dal_id == $dal->id ? 'checked' :'' }} > {{ $dal->title }}
+                                    <input type="radio" name="kapsamturu" value="{{ $exm->id }}:{{ $dal->id }}" {{ $sinav && blank($sinav->kapsam_ders_id) && $sinav->kapsam_dal_id == $dal->id ? 'checked' :'' }} > {{ $dal->title }}
                                 </label>
                             </div>
 
@@ -27,7 +37,7 @@
 
                                     <div class="control">
                                         <label class="radio">
-                                            <input type="radio" name="kapsamturu" value="{{ $sinav->id }}:{{ $dal->id }}:{{ $ders->id }}" {{$item && $item->kapsam_ders_id == $ders->id ? 'checked' :''}}> {{ $ders->title }}
+                                            <input type="radio" name="kapsamturu" value="{{ $exm->id }}:{{ $dal->id }}:{{ $ders->id }}" {{$sinav && $sinav->kapsam_ders_id == $ders->id ? 'checked' :''}}> {{ $ders->title }}
                                         </label>
                                     </div>
 

@@ -281,5 +281,53 @@ class DatabaseSeeder extends Seeder
             'fen_dogru' => 12,
             'fen_yanlis' => 8,
         ]);
+
+        HarunSonuc::create([
+            'sinav_tarihi' => '2020-07-26',
+            'tur_dogru' => 24,
+            'tur_yanlis' => 16,
+            'sos_dogru' => 12,
+            'sos_yanlis' => 8,
+            'mat_dogru' => 24,
+            'mat_yanlis' => 14,
+            'fen_dogru' => 13,
+            'fen_yanlis' => 7,
+        ]);
+
+        HarunSonuc::create([
+            'sinav_tarihi' => '2020-08-02',
+            'tur_dogru' => 21,
+            'tur_yanlis' => 19,
+            'sos_dogru' => 13,
+            'sos_yanlis' => 7,
+            'mat_dogru' => 21,
+            'mat_yanlis' => 11,
+            'fen_dogru' => 11,
+            'fen_yanlis' => 9,
+        ]);
+
+        HarunSonuc::create([
+            'sinav_tarihi' => '2020-08-05',
+            'tur_dogru' => 28,
+            'tur_yanlis' => 12,
+            'sos_dogru' => 12,
+            'sos_yanlis' => 7,
+            'mat_dogru' => 20,
+            'mat_yanlis' => 18,
+            'fen_dogru' => 9,
+            'fen_yanlis' => 11,
+        ]);
+
+        HarunSonuc::create([
+            'sinav_tarihi' => '2020-08-07',
+            'tur_dogru' => 29,
+            'tur_yanlis' => 11,
+            'sos_dogru' => 16,
+            'sos_yanlis' => 3,
+            'mat_dogru' => 28,
+            'mat_yanlis' => 11,
+            'fen_dogru' => 14,
+            'fen_yanlis' => 6,
+        ]);
     }
 }

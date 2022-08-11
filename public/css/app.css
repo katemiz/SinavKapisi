@@ -31,3 +31,36 @@
   font-size: 2em;
   font-weight: 100;
 }
+
+.letter_0 {
+  background-image: url(/images/letter_a.svg);
+  background-repeat: no-repeat;
+}
+
+.letter_1 {
+  background-image: url(/images/letter_b.svg);
+  background-repeat: no-repeat;
+}
+
+.letter_2 {
+  background-image: url(/images/letter_c.svg);
+  background-repeat: no-repeat;
+}
+
+.letter_3 {
+  background-image: url(/images/letter_d.svg);
+  background-repeat: no-repeat;
+}
+
+.letter_4 {
+  background-image: url(/images/letter_e.svg);
+  background-repeat: no-repeat;
+}
+
+.cevap_hover {
+  background-color: #7b886f;
+}
+
+.cevap_selected {
+  background-color: #87c09b !important;
+}

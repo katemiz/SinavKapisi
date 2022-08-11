@@ -22,7 +22,7 @@
         <div class="notification {{$notification["type"]}} is-light">{!! $notification["message"] !!}</div>
     @endif
 
-    <x-table-filter addcommand="Kağıt Sınav Ekle" addlink="/sinav-ekle" showsearch="{{$kagit_sinavlar->total() > 0 ? true:false}}"/>
+    <x-table-filter addcommand="Kağıt Sınav Ekle" addlink="/kagit-sinav" showsearch="{{$kagit_sinavlar->total() > 0 ? true:false}}"/>
 
     @if ($kagit_sinavlar->total() > 0)
 

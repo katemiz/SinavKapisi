@@ -60,12 +60,6 @@ class Harun extends Component
             array_push($this->chart['datasets']['2']['values'], $sos_net);
             array_push($this->chart['datasets']['3']['values'], $mat_net);
             array_push($this->chart['datasets']['4']['values'], $fen_net);
-
-            // if (file_put_contents(asset('/js/chartisan.json'), $this->chart)) {
-            //     echo 'JSON file created successfully...';
-            // } else {
-            //     echo 'Oops! Error creating json file...';
-            // }
         }
 
         $this->chart = json_encode($this->chart);
@@ -73,11 +67,8 @@ class Harun extends Component
 
     public function render()
     {
-        //dd($this->chart);
         return view('livewire.harun', [
             'chart' => $this->chart,
         ]);
-
-        // return response()->json($this->chart);
     }
 }

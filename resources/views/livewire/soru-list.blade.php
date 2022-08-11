@@ -94,7 +94,7 @@
                     <tr>
                         <td>{{$soru->sinav}}</td>
                         <td>{{ !blank($soru->ders) ? $soru->ders : $soru->dal}}</td>
-                        <td><a href="/soru-view/{{$soru->id}}">{!! $soru->soru !!}</a></td>
+                        <td><a href="/esoru/{{$soru->id}}">{!! $soru->soru !!}</a></td>
                         <td>{{ $soru->created_at }}</td>
                         <td>{{ $soru->is_published ? 'Yayınlanmış':'Çalışılıyor' }}</td>
 

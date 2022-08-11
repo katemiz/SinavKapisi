@@ -8,7 +8,7 @@
     <form action="/soru-insert" method="POST" enctype="multipart/form-data">
         @csrf
 
-        <x-kapsam-select :kapsam="$kapsam" item="{{false}}" />
+        <x-kapsam-select :kapsam="$kapsam" sinav="{{false}}"/>
 
         <div class="field">
             <input type="hidden" name="editor_data1" id="ckeditor1" value="">
